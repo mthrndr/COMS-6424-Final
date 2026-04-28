@@ -1,0 +1,15 @@
+/home/kristian/Documents/Columbia/HardwareSecurity/Final_Project/chipyard/sims/verilator/generated-src/chipyard.harness.TestHarness.CleanMedRocketConfig/gen-collateral/ClockSourceAtFreqMHz.v
+/home/kristian/Documents/Columbia/HardwareSecurity/Final_Project/chipyard/sims/verilator/generated-src/chipyard.harness.TestHarness.CleanMedRocketConfig/gen-collateral/EICG_wrapper.v
+/home/kristian/Documents/Columbia/HardwareSecurity/Final_Project/chipyard/sims/verilator/generated-src/chipyard.harness.TestHarness.CleanMedRocketConfig/gen-collateral/GenericDigitalInIOCell.v
+/home/kristian/Documents/Columbia/HardwareSecurity/Final_Project/chipyard/sims/verilator/generated-src/chipyard.harness.TestHarness.CleanMedRocketConfig/gen-collateral/GenericDigitalOutIOCell.v
+/home/kristian/Documents/Columbia/HardwareSecurity/Final_Project/chipyard/sims/verilator/generated-src/chipyard.harness.TestHarness.CleanMedRocketConfig/gen-collateral/SimJTAG.cc
+/home/kristian/Documents/Columbia/HardwareSecurity/Final_Project/chipyard/sims/verilator/generated-src/chipyard.harness.TestHarness.CleanMedRocketConfig/gen-collateral/SimJTAG.v
+/home/kristian/Documents/Columbia/HardwareSecurity/Final_Project/chipyard/sims/verilator/generated-src/chipyard.harness.TestHarness.CleanMedRocketConfig/gen-collateral/SimTSI.cc
+/home/kristian/Documents/Columbia/HardwareSecurity/Final_Project/chipyard/sims/verilator/generated-src/chipyard.harness.TestHarness.CleanMedRocketConfig/gen-collateral/SimTSI.v
+/home/kristian/Documents/Columbia/HardwareSecurity/Final_Project/chipyard/sims/verilator/generated-src/chipyard.harness.TestHarness.CleanMedRocketConfig/gen-collateral/SimUART.cc
+/home/kristian/Documents/Columbia/HardwareSecurity/Final_Project/chipyard/sims/verilator/generated-src/chipyard.harness.TestHarness.CleanMedRocketConfig/gen-collateral/SimUART.v
+/home/kristian/Documents/Columbia/HardwareSecurity/Final_Project/chipyard/sims/verilator/generated-src/chipyard.harness.TestHarness.CleanMedRocketConfig/gen-collateral/plusarg_reader.v
+/home/kristian/Documents/Columbia/HardwareSecurity/Final_Project/chipyard/sims/verilator/generated-src/chipyard.harness.TestHarness.CleanMedRocketConfig/gen-collateral/remote_bitbang.cc
+/home/kristian/Documents/Columbia/HardwareSecurity/Final_Project/chipyard/sims/verilator/generated-src/chipyard.harness.TestHarness.CleanMedRocketConfig/gen-collateral/testchip_htif.cc
+/home/kristian/Documents/Columbia/HardwareSecurity/Final_Project/chipyard/sims/verilator/generated-src/chipyard.harness.TestHarness.CleanMedRocketConfig/gen-collateral/testchip_tsi.cc
+/home/kristian/Documents/Columbia/HardwareSecurity/Final_Project/chipyard/sims/verilator/generated-src/chipyard.harness.TestHarness.CleanMedRocketConfig/gen-collateral/uart.cc

@@ -1,0 +1,3460 @@
+{
+  "instance_name": "ChipTop",
+  "module_name": "ChipTop",
+  "instances": [
+    {
+      "instance_name": "system",
+      "module_name": "DigitalTop",
+      "instances": [
+        {
+          "instance_name": "ibus_int_bus",
+          "module_name": "IntXbar",
+          "instances": []
+        },
+        {
+          "instance_name": "sbus",
+          "module_name": "SystemBus",
+          "instances": [
+            {
+              "instance_name": "fixedClockNode",
+              "module_name": "FixedClockBroadcast",
+              "instances": []
+            },
+            {
+              "instance_name": "system_bus_xbar",
+              "module_name": "TLXbar",
+              "instances": [
+                {
+                  "instance_name": "monitor",
+                  "module_name": "TLMonitor",
+                  "instances": [
+                    {
+                      "instance_name": "plusarg_reader",
+                      "module_name": "plusarg_reader",
+                      "instances": []
+                    },
+                    {
+                      "instance_name": "plusarg_reader_1",
+                      "module_name": "plusarg_reader",
+                      "instances": []
+                    }
+                  ]
+                },
+                {
+                  "instance_name": "monitor_1",
+                  "module_name": "TLMonitor_1",
+                  "instances": [
+                    {
+                      "instance_name": "plusarg_reader",
+                      "module_name": "plusarg_reader",
+                      "instances": []
+                    },
+                    {
+                      "instance_name": "plusarg_reader_1",
+                      "module_name": "plusarg_reader",
+                      "instances": []
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "instance_name": "fixer",
+              "module_name": "TLFIFOFixer",
+              "instances": [
+                {
+                  "instance_name": "monitor",
+                  "module_name": "TLMonitor_2",
+                  "instances": [
+                    {
+                      "instance_name": "plusarg_reader",
+                      "module_name": "plusarg_reader",
+                      "instances": []
+                    },
+                    {
+                      "instance_name": "plusarg_reader_1",
+                      "module_name": "plusarg_reader",
+                      "instances": []
+                    }
+                  ]
+                },
+                {
+                  "instance_name": "monitor_1",
+                  "module_name": "TLMonitor_3",
+                  "instances": [
+                    {
+                      "instance_name": "plusarg_reader",
+                      "module_name": "plusarg_reader",
+                      "instances": []
+                    },
+                    {
+                      "instance_name": "plusarg_reader_1",
+                      "module_name": "plusarg_reader",
+                      "instances": []
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "instance_name": "coupler_from_rockettile",
+              "module_name": "TLInterconnectCoupler_2",
+              "instances": [
+                {
+                  "instance_name": "cork",
+                  "module_name": "TLCacheCork",
+                  "instances": [
+                    {
+                      "instance_name": "monitor",
+                      "module_name": "TLMonitor_4",
+                      "instances": [
+                        {
+                          "instance_name": "plusarg_reader",
+                          "module_name": "plusarg_reader",
+                          "instances": []
+                        },
+                        {
+                          "instance_name": "plusarg_reader_1",
+                          "module_name": "plusarg_reader",
+                          "instances": []
+                        }
+                      ]
+                    },
+                    {
+                      "instance_name": "pool",
+                      "module_name": "IDPool",
+                      "instances": []
+                    },
+                    {
+                      "instance_name": "q",
+                      "module_name": "Queue",
+                      "instances": [
+                        {
+                          "instance_name": "ram_ext",
+                          "module_name": "ram_2x80",
+                          "instances": []
+                        }
+                      ]
+                    },
+                    {
+                      "instance_name": "q_1",
+                      "module_name": "Queue",
+                      "instances": [
+                        {
+                          "instance_name": "ram_ext",
+                          "module_name": "ram_2x80",
+                          "instances": []
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "instance_name": "pbus",
+          "module_name": "PeripheryBus",
+          "instances": [
+            {
+              "instance_name": "fixedClockNode",
+              "module_name": "FixedClockBroadcast_1",
+              "instances": []
+            },
+            {
+              "instance_name": "fixer",
+              "module_name": "TLFIFOFixer_1",
+              "instances": [
+                {
+                  "instance_name": "monitor",
+                  "module_name": "TLMonitor_5",
+                  "instances": [
+                    {
+                      "instance_name": "plusarg_reader",
+                      "module_name": "plusarg_reader",
+                      "instances": []
+                    },
+                    {
+                      "instance_name": "plusarg_reader_1",
+                      "module_name": "plusarg_reader",
+                      "instances": []
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "instance_name": "out_xbar",
+              "module_name": "TLXbar_2",
+              "instances": [
+                {
+                  "instance_name": "monitor",
+                  "module_name": "TLMonitor_6",
+                  "instances": [
+                    {
+                      "instance_name": "plusarg_reader",
+                      "module_name": "plusarg_reader",
+                      "instances": []
+                    },
+                    {
+                      "instance_name": "plusarg_reader_1",
+                      "module_name": "plusarg_reader",
+                      "instances": []
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "instance_name": "buffer",
+              "module_name": "TLBuffer_1",
+              "instances": [
+                {
+                  "instance_name": "monitor",
+                  "module_name": "TLMonitor_7",
+                  "instances": [
+                    {
+                      "instance_name": "plusarg_reader",
+                      "module_name": "plusarg_reader",
+                      "instances": []
+                    },
+                    {
+                      "instance_name": "plusarg_reader_1",
+                      "module_name": "plusarg_reader",
+                      "instances": []
+                    }
+                  ]
+                },
+                {
+                  "instance_name": "nodeOut_a_q",
+                  "module_name": "Queue_2",
+                  "instances": [
+                    {
+                      "instance_name": "ram_ext",
+                      "module_name": "ram_2x121",
+                      "instances": []
+                    }
+                  ]
+                },
+                {
+                  "instance_name": "nodeIn_d_q",
+                  "module_name": "Queue_3",
+                  "instances": [
+                    {
+                      "instance_name": "ram_ext",
+                      "module_name": "ram_2x85",
+                      "instances": []
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "instance_name": "atomics",
+              "module_name": "TLAtomicAutomata",
+              "instances": [
+                {
+                  "instance_name": "monitor",
+                  "module_name": "TLMonitor_8",
+                  "instances": [
+                    {
+                      "instance_name": "plusarg_reader",
+                      "module_name": "plusarg_reader",
+                      "instances": []
+                    },
+                    {
+                      "instance_name": "plusarg_reader_1",
+                      "module_name": "plusarg_reader",
+                      "instances": []
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "instance_name": "buffer_1",
+              "module_name": "TLBuffer_2",
+              "instances": [
+                {
+                  "instance_name": "monitor",
+                  "module_name": "TLMonitor_9",
+                  "instances": [
+                    {
+                      "instance_name": "plusarg_reader",
+                      "module_name": "plusarg_reader",
+                      "instances": []
+                    },
+                    {
+                      "instance_name": "plusarg_reader_1",
+                      "module_name": "plusarg_reader",
+                      "instances": []
+                    }
+                  ]
+                },
+                {
+                  "instance_name": "nodeOut_a_q",
+                  "module_name": "Queue_2",
+                  "instances": [
+                    {
+                      "instance_name": "ram_ext",
+                      "module_name": "ram_2x121",
+                      "instances": []
+                    }
+                  ]
+                },
+                {
+                  "instance_name": "nodeIn_d_q",
+                  "module_name": "Queue_3",
+                  "instances": [
+                    {
+                      "instance_name": "ram_ext",
+                      "module_name": "ram_2x85",
+                      "instances": []
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "instance_name": "coupler_to_bootaddressreg",
+              "module_name": "TLInterconnectCoupler_4",
+              "instances": [
+                {
+                  "instance_name": "fragmenter",
+                  "module_name": "TLFragmenter",
+                  "instances": [
+                    {
+                      "instance_name": "monitor",
+                      "module_name": "TLMonitor_10",
+                      "instances": [
+                        {
+                          "instance_name": "plusarg_reader",
+                          "module_name": "plusarg_reader",
+                          "instances": []
+                        },
+                        {
+                          "instance_name": "plusarg_reader_1",
+                          "module_name": "plusarg_reader",
+                          "instances": []
+                        }
+                      ]
+                    },
+                    {
+                      "instance_name": "repeater",
+                      "module_name": "Repeater",
+                      "instances": []
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "instance_name": "coupler_to_device_named_uart_0",
+              "module_name": "TLInterconnectCoupler_5",
+              "instances": [
+                {
+                  "instance_name": "fragmenter",
+                  "module_name": "TLFragmenter_1",
+                  "instances": [
+                    {
+                      "instance_name": "monitor",
+                      "module_name": "TLMonitor_11",
+                      "instances": [
+                        {
+                          "instance_name": "plusarg_reader",
+                          "module_name": "plusarg_reader",
+                          "instances": []
+                        },
+                        {
+                          "instance_name": "plusarg_reader_1",
+                          "module_name": "plusarg_reader",
+                          "instances": []
+                        }
+                      ]
+                    },
+                    {
+                      "instance_name": "repeater",
+                      "module_name": "Repeater_1",
+                      "instances": []
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "instance_name": "monitor",
+              "module_name": "TLMonitor_12",
+              "instances": [
+                {
+                  "instance_name": "plusarg_reader",
+                  "module_name": "plusarg_reader",
+                  "instances": []
+                },
+                {
+                  "instance_name": "plusarg_reader_1",
+                  "module_name": "plusarg_reader",
+                  "instances": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "instance_name": "fbus_fixedClockNode",
+          "module_name": "FixedClockBroadcast_1",
+          "instances": []
+        },
+        {
+          "instance_name": "fbus_buffer",
+          "module_name": "TLBuffer_3",
+          "instances": [
+            {
+              "instance_name": "monitor",
+              "module_name": "TLMonitor_13",
+              "instances": [
+                {
+                  "instance_name": "plusarg_reader",
+                  "module_name": "plusarg_reader",
+                  "instances": []
+                },
+                {
+                  "instance_name": "plusarg_reader_1",
+                  "module_name": "plusarg_reader",
+                  "instances": []
+                }
+              ]
+            },
+            {
+              "instance_name": "nodeOut_a_q",
+              "module_name": "Queue_6",
+              "instances": [
+                {
+                  "instance_name": "ram_ext",
+                  "module_name": "ram_2x120",
+                  "instances": []
+                }
+              ]
+            },
+            {
+              "instance_name": "nodeIn_d_q",
+              "module_name": "Queue_7",
+              "instances": [
+                {
+                  "instance_name": "ram_ext",
+                  "module_name": "ram_2x84",
+                  "instances": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "instance_name": "fbus_coupler_from_port_named_serial_tl_0_in",
+          "module_name": "TLInterconnectCoupler_6",
+          "instances": [
+            {
+              "instance_name": "buffer",
+              "module_name": "TLBuffer_4",
+              "instances": [
+                {
+                  "instance_name": "monitor",
+                  "module_name": "TLMonitor_14",
+                  "instances": [
+                    {
+                      "instance_name": "plusarg_reader",
+                      "module_name": "plusarg_reader",
+                      "instances": []
+                    },
+                    {
+                      "instance_name": "plusarg_reader_1",
+                      "module_name": "plusarg_reader",
+                      "instances": []
+                    }
+                  ]
+                },
+                {
+                  "instance_name": "nodeOut_a_q",
+                  "module_name": "Queue_6",
+                  "instances": [
+                    {
+                      "instance_name": "ram_ext",
+                      "module_name": "ram_2x120",
+                      "instances": []
+                    }
+                  ]
+                },
+                {
+                  "instance_name": "nodeIn_d_q",
+                  "module_name": "Queue_7",
+                  "instances": [
+                    {
+                      "instance_name": "ram_ext",
+                      "module_name": "ram_2x84",
+                      "instances": []
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "instance_name": "cbus",
+          "module_name": "PeripheryBus_1",
+          "instances": [
+            {
+              "instance_name": "fixedClockNode",
+              "module_name": "FixedClockBroadcast_3",
+              "instances": []
+            },
+            {
+              "instance_name": "fixer",
+              "module_name": "TLFIFOFixer_2",
+              "instances": [
+                {
+                  "instance_name": "monitor",
+                  "module_name": "TLMonitor_15",
+                  "instances": [
+                    {
+                      "instance_name": "plusarg_reader",
+                      "module_name": "plusarg_reader",
+                      "instances": []
+                    },
+                    {
+                      "instance_name": "plusarg_reader_1",
+                      "module_name": "plusarg_reader",
+                      "instances": []
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "instance_name": "in_xbar",
+              "module_name": "TLXbar_4",
+              "instances": [
+                {
+                  "instance_name": "monitor",
+                  "module_name": "TLMonitor_16",
+                  "instances": [
+                    {
+                      "instance_name": "plusarg_reader",
+                      "module_name": "plusarg_reader",
+                      "instances": []
+                    },
+                    {
+                      "instance_name": "plusarg_reader_1",
+                      "module_name": "plusarg_reader",
+                      "instances": []
+                    }
+                  ]
+                },
+                {
+                  "instance_name": "monitor_1",
+                  "module_name": "TLMonitor_17",
+                  "instances": [
+                    {
+                      "instance_name": "plusarg_reader",
+                      "module_name": "plusarg_reader",
+                      "instances": []
+                    },
+                    {
+                      "instance_name": "plusarg_reader_1",
+                      "module_name": "plusarg_reader",
+                      "instances": []
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "instance_name": "out_xbar",
+              "module_name": "TLXbar_5",
+              "instances": [
+                {
+                  "instance_name": "monitor",
+                  "module_name": "TLMonitor_18",
+                  "instances": [
+                    {
+                      "instance_name": "plusarg_reader",
+                      "module_name": "plusarg_reader",
+                      "instances": []
+                    },
+                    {
+                      "instance_name": "plusarg_reader_1",
+                      "module_name": "plusarg_reader",
+                      "instances": []
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "instance_name": "buffer",
+              "module_name": "TLBuffer_5",
+              "instances": [
+                {
+                  "instance_name": "monitor",
+                  "module_name": "TLMonitor_19",
+                  "instances": [
+                    {
+                      "instance_name": "plusarg_reader",
+                      "module_name": "plusarg_reader",
+                      "instances": []
+                    },
+                    {
+                      "instance_name": "plusarg_reader_1",
+                      "module_name": "plusarg_reader",
+                      "instances": []
+                    }
+                  ]
+                },
+                {
+                  "instance_name": "nodeOut_a_q",
+                  "module_name": "Queue_10",
+                  "instances": [
+                    {
+                      "instance_name": "ram_ext",
+                      "module_name": "ram_2x122",
+                      "instances": []
+                    }
+                  ]
+                },
+                {
+                  "instance_name": "nodeIn_d_q",
+                  "module_name": "Queue_11",
+                  "instances": [
+                    {
+                      "instance_name": "ram_ext",
+                      "module_name": "ram_2x86",
+                      "instances": []
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "instance_name": "atomics",
+              "module_name": "TLAtomicAutomata_1",
+              "instances": [
+                {
+                  "instance_name": "monitor",
+                  "module_name": "TLMonitor_20",
+                  "instances": [
+                    {
+                      "instance_name": "plusarg_reader",
+                      "module_name": "plusarg_reader",
+                      "instances": []
+                    },
+                    {
+                      "instance_name": "plusarg_reader_1",
+                      "module_name": "plusarg_reader",
+                      "instances": []
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "instance_name": "wrapped_error_device",
+              "module_name": "ErrorDeviceWrapper",
+              "instances": [
+                {
+                  "instance_name": "error",
+                  "module_name": "TLError",
+                  "instances": [
+                    {
+                      "instance_name": "monitor",
+                      "module_name": "TLMonitor_21",
+                      "instances": [
+                        {
+                          "instance_name": "plusarg_reader",
+                          "module_name": "plusarg_reader",
+                          "instances": []
+                        },
+                        {
+                          "instance_name": "plusarg_reader_1",
+                          "module_name": "plusarg_reader",
+                          "instances": []
+                        }
+                      ]
+                    },
+                    {
+                      "instance_name": "a_q",
+                      "module_name": "Queue_12",
+                      "instances": []
+                    }
+                  ]
+                },
+                {
+                  "instance_name": "buffer",
+                  "module_name": "TLBuffer_6",
+                  "instances": [
+                    {
+                      "instance_name": "monitor",
+                      "module_name": "TLMonitor_22",
+                      "instances": [
+                        {
+                          "instance_name": "plusarg_reader",
+                          "module_name": "plusarg_reader",
+                          "instances": []
+                        },
+                        {
+                          "instance_name": "plusarg_reader_1",
+                          "module_name": "plusarg_reader",
+                          "instances": []
+                        }
+                      ]
+                    },
+                    {
+                      "instance_name": "nodeOut_a_q",
+                      "module_name": "Queue_13",
+                      "instances": [
+                        {
+                          "instance_name": "ram_ext",
+                          "module_name": "ram_2x107",
+                          "instances": []
+                        }
+                      ]
+                    },
+                    {
+                      "instance_name": "nodeIn_d_q",
+                      "module_name": "Queue_11",
+                      "instances": [
+                        {
+                          "instance_name": "ram_ext",
+                          "module_name": "ram_2x86",
+                          "instances": []
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "instance_name": "coupler_to_clint",
+              "module_name": "TLInterconnectCoupler_8",
+              "instances": [
+                {
+                  "instance_name": "fragmenter",
+                  "module_name": "TLFragmenter_2",
+                  "instances": [
+                    {
+                      "instance_name": "monitor",
+                      "module_name": "TLMonitor_23",
+                      "instances": [
+                        {
+                          "instance_name": "plusarg_reader",
+                          "module_name": "plusarg_reader",
+                          "instances": []
+                        },
+                        {
+                          "instance_name": "plusarg_reader_1",
+                          "module_name": "plusarg_reader",
+                          "instances": []
+                        }
+                      ]
+                    },
+                    {
+                      "instance_name": "repeater",
+                      "module_name": "Repeater_2",
+                      "instances": []
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "instance_name": "coupler_to_plic",
+              "module_name": "TLInterconnectCoupler_9",
+              "instances": [
+                {
+                  "instance_name": "fragmenter",
+                  "module_name": "TLFragmenter_3",
+                  "instances": [
+                    {
+                      "instance_name": "monitor",
+                      "module_name": "TLMonitor_24",
+                      "instances": [
+                        {
+                          "instance_name": "plusarg_reader",
+                          "module_name": "plusarg_reader",
+                          "instances": []
+                        },
+                        {
+                          "instance_name": "plusarg_reader_1",
+                          "module_name": "plusarg_reader",
+                          "instances": []
+                        }
+                      ]
+                    },
+                    {
+                      "instance_name": "repeater",
+                      "module_name": "Repeater_3",
+                      "instances": []
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "instance_name": "coupler_to_debug",
+              "module_name": "TLInterconnectCoupler_10",
+              "instances": [
+                {
+                  "instance_name": "fragmenter",
+                  "module_name": "TLFragmenter_4",
+                  "instances": [
+                    {
+                      "instance_name": "monitor",
+                      "module_name": "TLMonitor_25",
+                      "instances": [
+                        {
+                          "instance_name": "plusarg_reader",
+                          "module_name": "plusarg_reader",
+                          "instances": []
+                        },
+                        {
+                          "instance_name": "plusarg_reader_1",
+                          "module_name": "plusarg_reader",
+                          "instances": []
+                        }
+                      ]
+                    },
+                    {
+                      "instance_name": "repeater",
+                      "module_name": "Repeater_4",
+                      "instances": []
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "instance_name": "coupler_to_bootrom",
+              "module_name": "TLInterconnectCoupler_12",
+              "instances": [
+                {
+                  "instance_name": "fragmenter",
+                  "module_name": "TLFragmenter_5",
+                  "instances": [
+                    {
+                      "instance_name": "monitor",
+                      "module_name": "TLMonitor_26",
+                      "instances": [
+                        {
+                          "instance_name": "plusarg_reader",
+                          "module_name": "plusarg_reader",
+                          "instances": []
+                        },
+                        {
+                          "instance_name": "plusarg_reader_1",
+                          "module_name": "plusarg_reader",
+                          "instances": []
+                        }
+                      ]
+                    },
+                    {
+                      "instance_name": "repeater",
+                      "module_name": "Repeater_5",
+                      "instances": []
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "instance_name": "coupler_to_prci_ctrl",
+              "module_name": "TLInterconnectCoupler_14",
+              "instances": [
+                {
+                  "instance_name": "fixer",
+                  "module_name": "TLFIFOFixer_3",
+                  "instances": [
+                    {
+                      "instance_name": "monitor",
+                      "module_name": "TLMonitor_27",
+                      "instances": [
+                        {
+                          "instance_name": "plusarg_reader",
+                          "module_name": "plusarg_reader",
+                          "instances": []
+                        },
+                        {
+                          "instance_name": "plusarg_reader_1",
+                          "module_name": "plusarg_reader",
+                          "instances": []
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "instance_name": "buffer",
+                  "module_name": "TLBuffer_8",
+                  "instances": [
+                    {
+                      "instance_name": "monitor",
+                      "module_name": "TLMonitor_28",
+                      "instances": [
+                        {
+                          "instance_name": "plusarg_reader",
+                          "module_name": "plusarg_reader",
+                          "instances": []
+                        },
+                        {
+                          "instance_name": "plusarg_reader_1",
+                          "module_name": "plusarg_reader",
+                          "instances": []
+                        }
+                      ]
+                    },
+                    {
+                      "instance_name": "nodeOut_a_q",
+                      "module_name": "Queue_15",
+                      "instances": [
+                        {
+                          "instance_name": "ram_ext",
+                          "module_name": "ram_2x113",
+                          "instances": []
+                        }
+                      ]
+                    },
+                    {
+                      "instance_name": "nodeIn_d_q",
+                      "module_name": "Queue_3",
+                      "instances": [
+                        {
+                          "instance_name": "ram_ext",
+                          "module_name": "ram_2x85",
+                          "instances": []
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "instance_name": "tile_prci_domain",
+          "module_name": "TilePRCIDomain",
+          "instances": [
+            {
+              "instance_name": "element_reset_domain_rockettile",
+              "module_name": "RocketTile",
+              "instances": [
+                {
+                  "instance_name": "tlMasterXbar",
+                  "module_name": "TLXbar_6",
+                  "instances": [
+                    {
+                      "instance_name": "monitor",
+                      "module_name": "TLMonitor_29",
+                      "instances": [
+                        {
+                          "instance_name": "plusarg_reader",
+                          "module_name": "plusarg_reader",
+                          "instances": []
+                        },
+                        {
+                          "instance_name": "plusarg_reader_1",
+                          "module_name": "plusarg_reader",
+                          "instances": []
+                        }
+                      ]
+                    },
+                    {
+                      "instance_name": "monitor_1",
+                      "module_name": "TLMonitor_30",
+                      "instances": [
+                        {
+                          "instance_name": "plusarg_reader",
+                          "module_name": "plusarg_reader",
+                          "instances": []
+                        },
+                        {
+                          "instance_name": "plusarg_reader_1",
+                          "module_name": "plusarg_reader",
+                          "instances": []
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "instance_name": "intXbar",
+                  "module_name": "IntXbar_1",
+                  "instances": []
+                },
+                {
+                  "instance_name": "dcache",
+                  "module_name": "DCache",
+                  "instances": [
+                    {
+                      "instance_name": "tlb_pmp",
+                      "module_name": "PMPChecker",
+                      "instances": []
+                    },
+                    {
+                      "instance_name": "tlb_entries_barrier",
+                      "module_name": "OptimizationBarrier",
+                      "instances": []
+                    },
+                    {
+                      "instance_name": "tlb_entries_barrier_1",
+                      "module_name": "OptimizationBarrier",
+                      "instances": []
+                    },
+                    {
+                      "instance_name": "tlb_entries_barrier_2",
+                      "module_name": "OptimizationBarrier",
+                      "instances": []
+                    },
+                    {
+                      "instance_name": "tlb_entries_barrier_3",
+                      "module_name": "OptimizationBarrier",
+                      "instances": []
+                    },
+                    {
+                      "instance_name": "tlb_entries_barrier_4",
+                      "module_name": "OptimizationBarrier",
+                      "instances": []
+                    },
+                    {
+                      "instance_name": "tlb_entries_barrier_5",
+                      "module_name": "OptimizationBarrier",
+                      "instances": []
+                    },
+                    {
+                      "instance_name": "pma_checker_entries_barrier",
+                      "module_name": "OptimizationBarrier",
+                      "instances": []
+                    },
+                    {
+                      "instance_name": "pma_checker_entries_barrier_1",
+                      "module_name": "OptimizationBarrier",
+                      "instances": []
+                    },
+                    {
+                      "instance_name": "pma_checker_entries_barrier_2",
+                      "module_name": "OptimizationBarrier",
+                      "instances": []
+                    },
+                    {
+                      "instance_name": "pma_checker_entries_barrier_3",
+                      "module_name": "OptimizationBarrier",
+                      "instances": []
+                    },
+                    {
+                      "instance_name": "pma_checker_entries_barrier_4",
+                      "module_name": "OptimizationBarrier",
+                      "instances": []
+                    },
+                    {
+                      "instance_name": "tag_array_0",
+                      "module_name": "tag_array_0",
+                      "instances": [
+                        {
+                          "instance_name": "tag_array_0_ext",
+                          "module_name": "tag_array_0_ext",
+                          "instances": []
+                        }
+                      ]
+                    },
+                    {
+                      "instance_name": "data",
+                      "module_name": "DCacheDataArray",
+                      "instances": [
+                        {
+                          "instance_name": "data_arrays_0",
+                          "module_name": "data_arrays_0",
+                          "instances": [
+                            {
+                              "instance_name": "data_arrays_0_ext",
+                              "module_name": "data_arrays_0_ext",
+                              "instances": []
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "instance_name": "amoalus_0",
+                      "module_name": "AMOALU",
+                      "instances": []
+                    }
+                  ]
+                },
+                {
+                  "instance_name": "frontend",
+                  "module_name": "Frontend",
+                  "instances": [
+                    {
+                      "instance_name": "icache",
+                      "module_name": "ICache",
+                      "instances": [
+                        {
+                          "instance_name": "tag_array_0",
+                          "module_name": "tag_array_0_0",
+                          "instances": [
+                            {
+                              "instance_name": "tag_array_0_0_ext",
+                              "module_name": "tag_array_0_0_ext",
+                              "instances": []
+                            }
+                          ]
+                        },
+                        {
+                          "instance_name": "data_arrays_0_0",
+                          "module_name": "data_arrays_0_0",
+                          "instances": [
+                            {
+                              "instance_name": "data_arrays_0_0_ext",
+                              "module_name": "data_arrays_0_0_ext",
+                              "instances": []
+                            }
+                          ]
+                        },
+                        {
+                          "instance_name": "data_arrays_1_0",
+                          "module_name": "data_arrays_1_0",
+                          "instances": [
+                            {
+                              "instance_name": "data_arrays_0_0_ext",
+                              "module_name": "data_arrays_0_0_ext",
+                              "instances": []
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "instance_name": "fq",
+                      "module_name": "ShiftQueue",
+                      "instances": []
+                    },
+                    {
+                      "instance_name": "tlb",
+                      "module_name": "TLB_1",
+                      "instances": [
+                        {
+                          "instance_name": "pmp",
+                          "module_name": "PMPChecker_2",
+                          "instances": []
+                        },
+                        {
+                          "instance_name": "entries_barrier",
+                          "module_name": "OptimizationBarrier",
+                          "instances": []
+                        },
+                        {
+                          "instance_name": "entries_barrier_1",
+                          "module_name": "OptimizationBarrier",
+                          "instances": []
+                        },
+                        {
+                          "instance_name": "entries_barrier_2",
+                          "module_name": "OptimizationBarrier",
+                          "instances": []
+                        },
+                        {
+                          "instance_name": "entries_barrier_3",
+                          "module_name": "OptimizationBarrier",
+                          "instances": []
+                        },
+                        {
+                          "instance_name": "entries_barrier_4",
+                          "module_name": "OptimizationBarrier",
+                          "instances": []
+                        },
+                        {
+                          "instance_name": "entries_barrier_5",
+                          "module_name": "OptimizationBarrier",
+                          "instances": []
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "instance_name": "dcacheArb",
+                  "module_name": "HellaCacheArbiter",
+                  "instances": []
+                },
+                {
+                  "instance_name": "ptw",
+                  "module_name": "PTW",
+                  "instances": [
+                    {
+                      "instance_name": "arb",
+                      "module_name": "Arbiter",
+                      "instances": []
+                    }
+                  ]
+                },
+                {
+                  "instance_name": "core",
+                  "module_name": "Rocket",
+                  "instances": [
+                    {
+                      "instance_name": "ibuf",
+                      "module_name": "IBuf",
+                      "instances": [
+                        {
+                          "instance_name": "exp",
+                          "module_name": "RVCExpander",
+                          "instances": []
+                        }
+                      ]
+                    },
+                    {
+                      "instance_name": "rf_ext",
+                      "module_name": "rf_31x64",
+                      "instances": []
+                    },
+                    {
+                      "instance_name": "csr",
+                      "module_name": "CSRFile",
+                      "instances": []
+                    },
+                    {
+                      "instance_name": "bpu",
+                      "module_name": "BreakpointUnit",
+                      "instances": []
+                    },
+                    {
+                      "instance_name": "alu",
+                      "module_name": "ALU",
+                      "instances": []
+                    },
+                    {
+                      "instance_name": "div",
+                      "module_name": "MulDiv",
+                      "instances": []
+                    },
+                    {
+                      "instance_name": "PlusArgTimeout",
+                      "module_name": "PlusArgTimeout",
+                      "instances": [
+                        {
+                          "instance_name": "plusarg_reader",
+                          "module_name": "plusarg_reader",
+                          "instances": []
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "instance_name": "buffer",
+              "module_name": "TLBuffer_11",
+              "instances": [
+                {
+                  "instance_name": "monitor",
+                  "module_name": "TLMonitor_31",
+                  "instances": [
+                    {
+                      "instance_name": "plusarg_reader",
+                      "module_name": "plusarg_reader",
+                      "instances": []
+                    },
+                    {
+                      "instance_name": "plusarg_reader_1",
+                      "module_name": "plusarg_reader",
+                      "instances": []
+                    }
+                  ]
+                },
+                {
+                  "instance_name": "nodeOut_a_q",
+                  "module_name": "Queue_17",
+                  "instances": [
+                    {
+                      "instance_name": "ram_ext",
+                      "module_name": "ram_2x114",
+                      "instances": []
+                    }
+                  ]
+                },
+                {
+                  "instance_name": "nodeIn_d_q",
+                  "module_name": "Queue",
+                  "instances": [
+                    {
+                      "instance_name": "ram_ext",
+                      "module_name": "ram_2x80",
+                      "instances": []
+                    }
+                  ]
+                },
+                {
+                  "instance_name": "nodeIn_b_q",
+                  "module_name": "Queue_19",
+                  "instances": []
+                },
+                {
+                  "instance_name": "nodeOut_c_q",
+                  "module_name": "Queue_20",
+                  "instances": [
+                    {
+                      "instance_name": "ram_ext",
+                      "module_name": "ram_2x106",
+                      "instances": []
+                    }
+                  ]
+                },
+                {
+                  "instance_name": "nodeOut_e_q",
+                  "module_name": "Queue_21",
+                  "instances": [
+                    {
+                      "instance_name": "ram_sink_ext",
+                      "module_name": "ram_sink_2x3",
+                      "instances": []
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "instance_name": "intsink",
+              "module_name": "IntSyncAsyncCrossingSink",
+              "instances": [
+                {
+                  "instance_name": "chain",
+                  "module_name": "SynchronizerShiftReg_w1_d3",
+                  "instances": [
+                    {
+                      "instance_name": "output_chain",
+                      "module_name": "NonSyncResetSynchronizerPrimitiveShiftReg_d3",
+                      "instances": []
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "instance_name": "intsink_1",
+              "module_name": "IntSyncSyncCrossingSink",
+              "instances": []
+            },
+            {
+              "instance_name": "intsink_2",
+              "module_name": "IntSyncSyncCrossingSink_1",
+              "instances": []
+            },
+            {
+              "instance_name": "intsource",
+              "module_name": "IntSyncCrossingSource",
+              "instances": [
+                {
+                  "instance_name": "reg_0",
+                  "module_name": "AsyncResetRegVec_w1_i0",
+                  "instances": []
+                }
+              ]
+            },
+            {
+              "instance_name": "intsource_1",
+              "module_name": "IntSyncCrossingSource",
+              "instances": [
+                {
+                  "instance_name": "reg_0",
+                  "module_name": "AsyncResetRegVec_w1_i0",
+                  "instances": []
+                }
+              ]
+            },
+            {
+              "instance_name": "intsource_2",
+              "module_name": "IntSyncCrossingSource",
+              "instances": [
+                {
+                  "instance_name": "reg_0",
+                  "module_name": "AsyncResetRegVec_w1_i0",
+                  "instances": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "instance_name": "tileHartIdNexusNode",
+          "module_name": "BundleBridgeNexus_9",
+          "instances": []
+        },
+        {
+          "instance_name": "clint_domain",
+          "module_name": "ClockSinkDomain",
+          "instances": [
+            {
+              "instance_name": "clint",
+              "module_name": "CLINT",
+              "instances": [
+                {
+                  "instance_name": "monitor",
+                  "module_name": "TLMonitor_32",
+                  "instances": [
+                    {
+                      "instance_name": "plusarg_reader",
+                      "module_name": "plusarg_reader",
+                      "instances": []
+                    },
+                    {
+                      "instance_name": "plusarg_reader_1",
+                      "module_name": "plusarg_reader",
+                      "instances": []
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "instance_name": "intsource",
+              "module_name": "IntSyncCrossingSource_3",
+              "instances": [
+                {
+                  "instance_name": "reg_0",
+                  "module_name": "AsyncResetRegVec_w2_i0",
+                  "instances": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "instance_name": "domain",
+          "module_name": "ClockSinkDomain_1",
+          "instances": [
+            {
+              "instance_name": "plic",
+              "module_name": "TLPLIC",
+              "instances": [
+                {
+                  "instance_name": "monitor",
+                  "module_name": "TLMonitor_33",
+                  "instances": [
+                    {
+                      "instance_name": "plusarg_reader",
+                      "module_name": "plusarg_reader",
+                      "instances": []
+                    },
+                    {
+                      "instance_name": "plusarg_reader_1",
+                      "module_name": "plusarg_reader",
+                      "instances": []
+                    }
+                  ]
+                },
+                {
+                  "instance_name": "gateways_gateway",
+                  "module_name": "LevelGateway",
+                  "instances": []
+                },
+                {
+                  "instance_name": "fanin",
+                  "module_name": "PLICFanIn",
+                  "instances": []
+                },
+                {
+                  "instance_name": "out_back_q",
+                  "module_name": "Queue_22",
+                  "instances": []
+                }
+              ]
+            },
+            {
+              "instance_name": "intsource",
+              "module_name": "IntSyncCrossingSource",
+              "instances": [
+                {
+                  "instance_name": "reg_0",
+                  "module_name": "AsyncResetRegVec_w1_i0",
+                  "instances": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "instance_name": "tlDM",
+          "module_name": "TLDebugModule",
+          "instances": [
+            {
+              "instance_name": "dmOuter",
+              "module_name": "TLDebugModuleOuterAsync",
+              "instances": [
+                {
+                  "instance_name": "dmiXbar",
+                  "module_name": "TLXbar_8",
+                  "instances": [
+                    {
+                      "instance_name": "monitor",
+                      "module_name": "TLMonitor_34",
+                      "instances": [
+                        {
+                          "instance_name": "plusarg_reader",
+                          "module_name": "plusarg_reader",
+                          "instances": []
+                        },
+                        {
+                          "instance_name": "plusarg_reader_1",
+                          "module_name": "plusarg_reader",
+                          "instances": []
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "instance_name": "dmi2tl",
+                  "module_name": "DMIToTL",
+                  "instances": []
+                },
+                {
+                  "instance_name": "dmOuter",
+                  "module_name": "TLDebugModuleOuter",
+                  "instances": [
+                    {
+                      "instance_name": "monitor",
+                      "module_name": "TLMonitor_35",
+                      "instances": [
+                        {
+                          "instance_name": "plusarg_reader",
+                          "module_name": "plusarg_reader",
+                          "instances": []
+                        },
+                        {
+                          "instance_name": "plusarg_reader_1",
+                          "module_name": "plusarg_reader",
+                          "instances": []
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "instance_name": "intsource",
+                  "module_name": "IntSyncCrossingSource_5",
+                  "instances": []
+                },
+                {
+                  "instance_name": "dmiBypass",
+                  "module_name": "TLBusBypass",
+                  "instances": [
+                    {
+                      "instance_name": "bar",
+                      "module_name": "TLBusBypassBar",
+                      "instances": [
+                        {
+                          "instance_name": "monitor",
+                          "module_name": "TLMonitor_36",
+                          "instances": [
+                            {
+                              "instance_name": "plusarg_reader",
+                              "module_name": "plusarg_reader",
+                              "instances": []
+                            },
+                            {
+                              "instance_name": "plusarg_reader_1",
+                              "module_name": "plusarg_reader",
+                              "instances": []
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "instance_name": "error",
+                      "module_name": "TLError_1",
+                      "instances": [
+                        {
+                          "instance_name": "monitor",
+                          "module_name": "TLMonitor_37",
+                          "instances": [
+                            {
+                              "instance_name": "plusarg_reader",
+                              "module_name": "plusarg_reader",
+                              "instances": []
+                            },
+                            {
+                              "instance_name": "plusarg_reader_1",
+                              "module_name": "plusarg_reader",
+                              "instances": []
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "instance_name": "asource",
+                  "module_name": "TLAsyncCrossingSource",
+                  "instances": [
+                    {
+                      "instance_name": "monitor",
+                      "module_name": "TLMonitor_38",
+                      "instances": [
+                        {
+                          "instance_name": "plusarg_reader",
+                          "module_name": "plusarg_reader",
+                          "instances": []
+                        },
+                        {
+                          "instance_name": "plusarg_reader_1",
+                          "module_name": "plusarg_reader",
+                          "instances": []
+                        }
+                      ]
+                    },
+                    {
+                      "instance_name": "nodeOut_a_source",
+                      "module_name": "AsyncQueueSource",
+                      "instances": [
+                        {
+                          "instance_name": "ridx_ridx_gray",
+                          "module_name": "AsyncResetSynchronizerShiftReg_w1_d3_i0",
+                          "instances": [
+                            {
+                              "instance_name": "output_chain",
+                              "module_name": "AsyncResetSynchronizerPrimitiveShiftReg_d3_i0",
+                              "instances": []
+                            }
+                          ]
+                        },
+                        {
+                          "instance_name": "source_valid_0",
+                          "module_name": "AsyncValidSync",
+                          "instances": [
+                            {
+                              "instance_name": "io_out_source_valid_0",
+                              "module_name": "AsyncResetSynchronizerShiftReg_w1_d3_i0_1",
+                              "instances": [
+                                {
+                                  "instance_name": "output_chain",
+                                  "module_name": "AsyncResetSynchronizerPrimitiveShiftReg_d3_i0",
+                                  "instances": []
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "instance_name": "source_valid_1",
+                          "module_name": "AsyncValidSync",
+                          "instances": [
+                            {
+                              "instance_name": "io_out_source_valid_0",
+                              "module_name": "AsyncResetSynchronizerShiftReg_w1_d3_i0_1",
+                              "instances": [
+                                {
+                                  "instance_name": "output_chain",
+                                  "module_name": "AsyncResetSynchronizerPrimitiveShiftReg_d3_i0",
+                                  "instances": []
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "instance_name": "sink_extend",
+                          "module_name": "AsyncValidSync",
+                          "instances": [
+                            {
+                              "instance_name": "io_out_source_valid_0",
+                              "module_name": "AsyncResetSynchronizerShiftReg_w1_d3_i0_1",
+                              "instances": [
+                                {
+                                  "instance_name": "output_chain",
+                                  "module_name": "AsyncResetSynchronizerPrimitiveShiftReg_d3_i0",
+                                  "instances": []
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "instance_name": "sink_valid",
+                          "module_name": "AsyncValidSync",
+                          "instances": [
+                            {
+                              "instance_name": "io_out_source_valid_0",
+                              "module_name": "AsyncResetSynchronizerShiftReg_w1_d3_i0_1",
+                              "instances": [
+                                {
+                                  "instance_name": "output_chain",
+                                  "module_name": "AsyncResetSynchronizerPrimitiveShiftReg_d3_i0",
+                                  "instances": []
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "instance_name": "nodeIn_d_sink",
+                      "module_name": "AsyncQueueSink",
+                      "instances": [
+                        {
+                          "instance_name": "widx_widx_gray",
+                          "module_name": "AsyncResetSynchronizerShiftReg_w1_d3_i0",
+                          "instances": [
+                            {
+                              "instance_name": "output_chain",
+                              "module_name": "AsyncResetSynchronizerPrimitiveShiftReg_d3_i0",
+                              "instances": []
+                            }
+                          ]
+                        },
+                        {
+                          "instance_name": "io_deq_bits_deq_bits_reg",
+                          "module_name": "ClockCrossingReg_w43",
+                          "instances": []
+                        },
+                        {
+                          "instance_name": "sink_valid_0",
+                          "module_name": "AsyncValidSync",
+                          "instances": [
+                            {
+                              "instance_name": "io_out_source_valid_0",
+                              "module_name": "AsyncResetSynchronizerShiftReg_w1_d3_i0_1",
+                              "instances": [
+                                {
+                                  "instance_name": "output_chain",
+                                  "module_name": "AsyncResetSynchronizerPrimitiveShiftReg_d3_i0",
+                                  "instances": []
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "instance_name": "sink_valid_1",
+                          "module_name": "AsyncValidSync",
+                          "instances": [
+                            {
+                              "instance_name": "io_out_source_valid_0",
+                              "module_name": "AsyncResetSynchronizerShiftReg_w1_d3_i0_1",
+                              "instances": [
+                                {
+                                  "instance_name": "output_chain",
+                                  "module_name": "AsyncResetSynchronizerPrimitiveShiftReg_d3_i0",
+                                  "instances": []
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "instance_name": "source_extend",
+                          "module_name": "AsyncValidSync",
+                          "instances": [
+                            {
+                              "instance_name": "io_out_source_valid_0",
+                              "module_name": "AsyncResetSynchronizerShiftReg_w1_d3_i0_1",
+                              "instances": [
+                                {
+                                  "instance_name": "output_chain",
+                                  "module_name": "AsyncResetSynchronizerPrimitiveShiftReg_d3_i0",
+                                  "instances": []
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "instance_name": "source_valid",
+                          "module_name": "AsyncValidSync",
+                          "instances": [
+                            {
+                              "instance_name": "io_out_source_valid_0",
+                              "module_name": "AsyncResetSynchronizerShiftReg_w1_d3_i0_1",
+                              "instances": [
+                                {
+                                  "instance_name": "output_chain",
+                                  "module_name": "AsyncResetSynchronizerPrimitiveShiftReg_d3_i0",
+                                  "instances": []
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "instance_name": "dmactiveAck_dmactiveAckSync",
+                  "module_name": "AsyncResetSynchronizerShiftReg_w1_d3_i0",
+                  "instances": [
+                    {
+                      "instance_name": "output_chain",
+                      "module_name": "AsyncResetSynchronizerPrimitiveShiftReg_d3_i0",
+                      "instances": []
+                    }
+                  ]
+                },
+                {
+                  "instance_name": "io_innerCtrl_source",
+                  "module_name": "AsyncQueueSource_1",
+                  "instances": [
+                    {
+                      "instance_name": "ridx_ridx_gray",
+                      "module_name": "AsyncResetSynchronizerShiftReg_w1_d3_i0",
+                      "instances": [
+                        {
+                          "instance_name": "output_chain",
+                          "module_name": "AsyncResetSynchronizerPrimitiveShiftReg_d3_i0",
+                          "instances": []
+                        }
+                      ]
+                    },
+                    {
+                      "instance_name": "source_valid_0",
+                      "module_name": "AsyncValidSync",
+                      "instances": [
+                        {
+                          "instance_name": "io_out_source_valid_0",
+                          "module_name": "AsyncResetSynchronizerShiftReg_w1_d3_i0_1",
+                          "instances": [
+                            {
+                              "instance_name": "output_chain",
+                              "module_name": "AsyncResetSynchronizerPrimitiveShiftReg_d3_i0",
+                              "instances": []
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "instance_name": "source_valid_1",
+                      "module_name": "AsyncValidSync",
+                      "instances": [
+                        {
+                          "instance_name": "io_out_source_valid_0",
+                          "module_name": "AsyncResetSynchronizerShiftReg_w1_d3_i0_1",
+                          "instances": [
+                            {
+                              "instance_name": "output_chain",
+                              "module_name": "AsyncResetSynchronizerPrimitiveShiftReg_d3_i0",
+                              "instances": []
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "instance_name": "sink_extend",
+                      "module_name": "AsyncValidSync",
+                      "instances": [
+                        {
+                          "instance_name": "io_out_source_valid_0",
+                          "module_name": "AsyncResetSynchronizerShiftReg_w1_d3_i0_1",
+                          "instances": [
+                            {
+                              "instance_name": "output_chain",
+                              "module_name": "AsyncResetSynchronizerPrimitiveShiftReg_d3_i0",
+                              "instances": []
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "instance_name": "sink_valid",
+                      "module_name": "AsyncValidSync",
+                      "instances": [
+                        {
+                          "instance_name": "io_out_source_valid_0",
+                          "module_name": "AsyncResetSynchronizerShiftReg_w1_d3_i0_1",
+                          "instances": [
+                            {
+                              "instance_name": "output_chain",
+                              "module_name": "AsyncResetSynchronizerPrimitiveShiftReg_d3_i0",
+                              "instances": []
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "instance_name": "dmInner",
+              "module_name": "TLDebugModuleInnerAsync",
+              "instances": [
+                {
+                  "instance_name": "dmInner",
+                  "module_name": "TLDebugModuleInner",
+                  "instances": [
+                    {
+                      "instance_name": "monitor",
+                      "module_name": "TLMonitor_39",
+                      "instances": [
+                        {
+                          "instance_name": "plusarg_reader",
+                          "module_name": "plusarg_reader",
+                          "instances": []
+                        },
+                        {
+                          "instance_name": "plusarg_reader_1",
+                          "module_name": "plusarg_reader",
+                          "instances": []
+                        }
+                      ]
+                    },
+                    {
+                      "instance_name": "monitor_1",
+                      "module_name": "TLMonitor_40",
+                      "instances": [
+                        {
+                          "instance_name": "plusarg_reader",
+                          "module_name": "plusarg_reader",
+                          "instances": []
+                        },
+                        {
+                          "instance_name": "plusarg_reader_1",
+                          "module_name": "plusarg_reader",
+                          "instances": []
+                        }
+                      ]
+                    },
+                    {
+                      "instance_name": "hartIsInResetSync_0_debug_hartReset_0",
+                      "module_name": "AsyncResetSynchronizerShiftReg_w1_d3_i0",
+                      "instances": [
+                        {
+                          "instance_name": "output_chain",
+                          "module_name": "AsyncResetSynchronizerPrimitiveShiftReg_d3_i0",
+                          "instances": []
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "instance_name": "dmiXing",
+                  "module_name": "TLAsyncCrossingSink",
+                  "instances": [
+                    {
+                      "instance_name": "nodeOut_a_sink",
+                      "module_name": "AsyncQueueSink_1",
+                      "instances": [
+                        {
+                          "instance_name": "widx_widx_gray",
+                          "module_name": "AsyncResetSynchronizerShiftReg_w1_d3_i0",
+                          "instances": [
+                            {
+                              "instance_name": "output_chain",
+                              "module_name": "AsyncResetSynchronizerPrimitiveShiftReg_d3_i0",
+                              "instances": []
+                            }
+                          ]
+                        },
+                        {
+                          "instance_name": "io_deq_bits_deq_bits_reg",
+                          "module_name": "ClockCrossingReg_w55",
+                          "instances": []
+                        },
+                        {
+                          "instance_name": "sink_valid_0",
+                          "module_name": "AsyncValidSync",
+                          "instances": [
+                            {
+                              "instance_name": "io_out_source_valid_0",
+                              "module_name": "AsyncResetSynchronizerShiftReg_w1_d3_i0_1",
+                              "instances": [
+                                {
+                                  "instance_name": "output_chain",
+                                  "module_name": "AsyncResetSynchronizerPrimitiveShiftReg_d3_i0",
+                                  "instances": []
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "instance_name": "sink_valid_1",
+                          "module_name": "AsyncValidSync",
+                          "instances": [
+                            {
+                              "instance_name": "io_out_source_valid_0",
+                              "module_name": "AsyncResetSynchronizerShiftReg_w1_d3_i0_1",
+                              "instances": [
+                                {
+                                  "instance_name": "output_chain",
+                                  "module_name": "AsyncResetSynchronizerPrimitiveShiftReg_d3_i0",
+                                  "instances": []
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "instance_name": "source_extend",
+                          "module_name": "AsyncValidSync",
+                          "instances": [
+                            {
+                              "instance_name": "io_out_source_valid_0",
+                              "module_name": "AsyncResetSynchronizerShiftReg_w1_d3_i0_1",
+                              "instances": [
+                                {
+                                  "instance_name": "output_chain",
+                                  "module_name": "AsyncResetSynchronizerPrimitiveShiftReg_d3_i0",
+                                  "instances": []
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "instance_name": "source_valid",
+                          "module_name": "AsyncValidSync",
+                          "instances": [
+                            {
+                              "instance_name": "io_out_source_valid_0",
+                              "module_name": "AsyncResetSynchronizerShiftReg_w1_d3_i0_1",
+                              "instances": [
+                                {
+                                  "instance_name": "output_chain",
+                                  "module_name": "AsyncResetSynchronizerPrimitiveShiftReg_d3_i0",
+                                  "instances": []
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "instance_name": "nodeIn_d_source",
+                      "module_name": "AsyncQueueSource_2",
+                      "instances": [
+                        {
+                          "instance_name": "ridx_ridx_gray",
+                          "module_name": "AsyncResetSynchronizerShiftReg_w1_d3_i0",
+                          "instances": [
+                            {
+                              "instance_name": "output_chain",
+                              "module_name": "AsyncResetSynchronizerPrimitiveShiftReg_d3_i0",
+                              "instances": []
+                            }
+                          ]
+                        },
+                        {
+                          "instance_name": "source_valid_0",
+                          "module_name": "AsyncValidSync",
+                          "instances": [
+                            {
+                              "instance_name": "io_out_source_valid_0",
+                              "module_name": "AsyncResetSynchronizerShiftReg_w1_d3_i0_1",
+                              "instances": [
+                                {
+                                  "instance_name": "output_chain",
+                                  "module_name": "AsyncResetSynchronizerPrimitiveShiftReg_d3_i0",
+                                  "instances": []
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "instance_name": "source_valid_1",
+                          "module_name": "AsyncValidSync",
+                          "instances": [
+                            {
+                              "instance_name": "io_out_source_valid_0",
+                              "module_name": "AsyncResetSynchronizerShiftReg_w1_d3_i0_1",
+                              "instances": [
+                                {
+                                  "instance_name": "output_chain",
+                                  "module_name": "AsyncResetSynchronizerPrimitiveShiftReg_d3_i0",
+                                  "instances": []
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "instance_name": "sink_extend",
+                          "module_name": "AsyncValidSync",
+                          "instances": [
+                            {
+                              "instance_name": "io_out_source_valid_0",
+                              "module_name": "AsyncResetSynchronizerShiftReg_w1_d3_i0_1",
+                              "instances": [
+                                {
+                                  "instance_name": "output_chain",
+                                  "module_name": "AsyncResetSynchronizerPrimitiveShiftReg_d3_i0",
+                                  "instances": []
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "instance_name": "sink_valid",
+                          "module_name": "AsyncValidSync",
+                          "instances": [
+                            {
+                              "instance_name": "io_out_source_valid_0",
+                              "module_name": "AsyncResetSynchronizerShiftReg_w1_d3_i0_1",
+                              "instances": [
+                                {
+                                  "instance_name": "output_chain",
+                                  "module_name": "AsyncResetSynchronizerPrimitiveShiftReg_d3_i0",
+                                  "instances": []
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "instance_name": "dmactive_synced_dmactive_synced_dmactiveSync",
+                  "module_name": "AsyncResetSynchronizerShiftReg_w1_d3_i0",
+                  "instances": [
+                    {
+                      "instance_name": "output_chain",
+                      "module_name": "AsyncResetSynchronizerPrimitiveShiftReg_d3_i0",
+                      "instances": []
+                    }
+                  ]
+                },
+                {
+                  "instance_name": "dmactive_synced_dmInner_io_innerCtrl_sink",
+                  "module_name": "AsyncQueueSink_2",
+                  "instances": [
+                    {
+                      "instance_name": "widx_widx_gray",
+                      "module_name": "AsyncResetSynchronizerShiftReg_w1_d3_i0",
+                      "instances": [
+                        {
+                          "instance_name": "output_chain",
+                          "module_name": "AsyncResetSynchronizerPrimitiveShiftReg_d3_i0",
+                          "instances": []
+                        }
+                      ]
+                    },
+                    {
+                      "instance_name": "io_deq_bits_deq_bits_reg",
+                      "module_name": "ClockCrossingReg_w15",
+                      "instances": []
+                    },
+                    {
+                      "instance_name": "sink_valid_0",
+                      "module_name": "AsyncValidSync",
+                      "instances": [
+                        {
+                          "instance_name": "io_out_source_valid_0",
+                          "module_name": "AsyncResetSynchronizerShiftReg_w1_d3_i0_1",
+                          "instances": [
+                            {
+                              "instance_name": "output_chain",
+                              "module_name": "AsyncResetSynchronizerPrimitiveShiftReg_d3_i0",
+                              "instances": []
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "instance_name": "sink_valid_1",
+                      "module_name": "AsyncValidSync",
+                      "instances": [
+                        {
+                          "instance_name": "io_out_source_valid_0",
+                          "module_name": "AsyncResetSynchronizerShiftReg_w1_d3_i0_1",
+                          "instances": [
+                            {
+                              "instance_name": "output_chain",
+                              "module_name": "AsyncResetSynchronizerPrimitiveShiftReg_d3_i0",
+                              "instances": []
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "instance_name": "source_extend",
+                      "module_name": "AsyncValidSync",
+                      "instances": [
+                        {
+                          "instance_name": "io_out_source_valid_0",
+                          "module_name": "AsyncResetSynchronizerShiftReg_w1_d3_i0_1",
+                          "instances": [
+                            {
+                              "instance_name": "output_chain",
+                              "module_name": "AsyncResetSynchronizerPrimitiveShiftReg_d3_i0",
+                              "instances": []
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "instance_name": "source_valid",
+                      "module_name": "AsyncValidSync",
+                      "instances": [
+                        {
+                          "instance_name": "io_out_source_valid_0",
+                          "module_name": "AsyncResetSynchronizerShiftReg_w1_d3_i0_1",
+                          "instances": [
+                            {
+                              "instance_name": "output_chain",
+                              "module_name": "AsyncResetSynchronizerPrimitiveShiftReg_d3_i0",
+                              "instances": []
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "instance_name": "bootrom_domain",
+          "module_name": "ClockSinkDomain_2",
+          "instances": [
+            {
+              "instance_name": "bootrom",
+              "module_name": "TLROM",
+              "instances": [
+                {
+                  "instance_name": "monitor",
+                  "module_name": "TLMonitor_41",
+                  "instances": [
+                    {
+                      "instance_name": "plusarg_reader",
+                      "module_name": "plusarg_reader",
+                      "instances": []
+                    },
+                    {
+                      "instance_name": "plusarg_reader_1",
+                      "module_name": "plusarg_reader",
+                      "instances": []
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "instance_name": "serial_tl_domain",
+          "module_name": "ClockSinkDomain_3",
+          "instances": [
+            {
+              "instance_name": "serdesser",
+              "module_name": "TLSerdesser",
+              "instances": [
+                {
+                  "instance_name": "outArb",
+                  "module_name": "HellaPeekingArbiter",
+                  "instances": []
+                },
+                {
+                  "instance_name": "outSer",
+                  "module_name": "GenericSerializer",
+                  "instances": []
+                },
+                {
+                  "instance_name": "inDes",
+                  "module_name": "GenericDeserializer",
+                  "instances": []
+                }
+              ]
+            },
+            {
+              "instance_name": "outer_reset_catcher",
+              "module_name": "ResetCatchAndSync_d3",
+              "instances": [
+                {
+                  "instance_name": "io_sync_reset_chain",
+                  "module_name": "AsyncResetSynchronizerShiftReg_w1_d3_i0",
+                  "instances": [
+                    {
+                      "instance_name": "output_chain",
+                      "module_name": "AsyncResetSynchronizerPrimitiveShiftReg_d3_i0",
+                      "instances": []
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "instance_name": "out_async",
+              "module_name": "AsyncQueue",
+              "instances": [
+                {
+                  "instance_name": "source",
+                  "module_name": "AsyncQueueSource_3",
+                  "instances": [
+                    {
+                      "instance_name": "ridx_ridx_gray",
+                      "module_name": "AsyncResetSynchronizerShiftReg_w4_d3_i0",
+                      "instances": [
+                        {
+                          "instance_name": "output_chain",
+                          "module_name": "AsyncResetSynchronizerPrimitiveShiftReg_d3_i0",
+                          "instances": []
+                        },
+                        {
+                          "instance_name": "output_chain_1",
+                          "module_name": "AsyncResetSynchronizerPrimitiveShiftReg_d3_i0",
+                          "instances": []
+                        },
+                        {
+                          "instance_name": "output_chain_2",
+                          "module_name": "AsyncResetSynchronizerPrimitiveShiftReg_d3_i0",
+                          "instances": []
+                        },
+                        {
+                          "instance_name": "output_chain_3",
+                          "module_name": "AsyncResetSynchronizerPrimitiveShiftReg_d3_i0",
+                          "instances": []
+                        }
+                      ]
+                    },
+                    {
+                      "instance_name": "source_valid_0",
+                      "module_name": "AsyncValidSync",
+                      "instances": [
+                        {
+                          "instance_name": "io_out_source_valid_0",
+                          "module_name": "AsyncResetSynchronizerShiftReg_w1_d3_i0_1",
+                          "instances": [
+                            {
+                              "instance_name": "output_chain",
+                              "module_name": "AsyncResetSynchronizerPrimitiveShiftReg_d3_i0",
+                              "instances": []
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "instance_name": "source_valid_1",
+                      "module_name": "AsyncValidSync",
+                      "instances": [
+                        {
+                          "instance_name": "io_out_source_valid_0",
+                          "module_name": "AsyncResetSynchronizerShiftReg_w1_d3_i0_1",
+                          "instances": [
+                            {
+                              "instance_name": "output_chain",
+                              "module_name": "AsyncResetSynchronizerPrimitiveShiftReg_d3_i0",
+                              "instances": []
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "instance_name": "sink_extend",
+                      "module_name": "AsyncValidSync",
+                      "instances": [
+                        {
+                          "instance_name": "io_out_source_valid_0",
+                          "module_name": "AsyncResetSynchronizerShiftReg_w1_d3_i0_1",
+                          "instances": [
+                            {
+                              "instance_name": "output_chain",
+                              "module_name": "AsyncResetSynchronizerPrimitiveShiftReg_d3_i0",
+                              "instances": []
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "instance_name": "sink_valid",
+                      "module_name": "AsyncValidSync",
+                      "instances": [
+                        {
+                          "instance_name": "io_out_source_valid_0",
+                          "module_name": "AsyncResetSynchronizerShiftReg_w1_d3_i0_1",
+                          "instances": [
+                            {
+                              "instance_name": "output_chain",
+                              "module_name": "AsyncResetSynchronizerPrimitiveShiftReg_d3_i0",
+                              "instances": []
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "instance_name": "sink",
+                  "module_name": "AsyncQueueSink_3",
+                  "instances": [
+                    {
+                      "instance_name": "widx_widx_gray",
+                      "module_name": "AsyncResetSynchronizerShiftReg_w4_d3_i0",
+                      "instances": [
+                        {
+                          "instance_name": "output_chain",
+                          "module_name": "AsyncResetSynchronizerPrimitiveShiftReg_d3_i0",
+                          "instances": []
+                        },
+                        {
+                          "instance_name": "output_chain_1",
+                          "module_name": "AsyncResetSynchronizerPrimitiveShiftReg_d3_i0",
+                          "instances": []
+                        },
+                        {
+                          "instance_name": "output_chain_2",
+                          "module_name": "AsyncResetSynchronizerPrimitiveShiftReg_d3_i0",
+                          "instances": []
+                        },
+                        {
+                          "instance_name": "output_chain_3",
+                          "module_name": "AsyncResetSynchronizerPrimitiveShiftReg_d3_i0",
+                          "instances": []
+                        }
+                      ]
+                    },
+                    {
+                      "instance_name": "io_deq_bits_deq_bits_reg",
+                      "module_name": "ClockCrossingReg_w32",
+                      "instances": []
+                    },
+                    {
+                      "instance_name": "sink_valid_0",
+                      "module_name": "AsyncValidSync",
+                      "instances": [
+                        {
+                          "instance_name": "io_out_source_valid_0",
+                          "module_name": "AsyncResetSynchronizerShiftReg_w1_d3_i0_1",
+                          "instances": [
+                            {
+                              "instance_name": "output_chain",
+                              "module_name": "AsyncResetSynchronizerPrimitiveShiftReg_d3_i0",
+                              "instances": []
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "instance_name": "sink_valid_1",
+                      "module_name": "AsyncValidSync",
+                      "instances": [
+                        {
+                          "instance_name": "io_out_source_valid_0",
+                          "module_name": "AsyncResetSynchronizerShiftReg_w1_d3_i0_1",
+                          "instances": [
+                            {
+                              "instance_name": "output_chain",
+                              "module_name": "AsyncResetSynchronizerPrimitiveShiftReg_d3_i0",
+                              "instances": []
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "instance_name": "source_extend",
+                      "module_name": "AsyncValidSync",
+                      "instances": [
+                        {
+                          "instance_name": "io_out_source_valid_0",
+                          "module_name": "AsyncResetSynchronizerShiftReg_w1_d3_i0_1",
+                          "instances": [
+                            {
+                              "instance_name": "output_chain",
+                              "module_name": "AsyncResetSynchronizerPrimitiveShiftReg_d3_i0",
+                              "instances": []
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "instance_name": "source_valid",
+                      "module_name": "AsyncValidSync",
+                      "instances": [
+                        {
+                          "instance_name": "io_out_source_valid_0",
+                          "module_name": "AsyncResetSynchronizerShiftReg_w1_d3_i0_1",
+                          "instances": [
+                            {
+                              "instance_name": "output_chain",
+                              "module_name": "AsyncResetSynchronizerPrimitiveShiftReg_d3_i0",
+                              "instances": []
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "instance_name": "in_async",
+              "module_name": "AsyncQueue",
+              "instances": [
+                {
+                  "instance_name": "source",
+                  "module_name": "AsyncQueueSource_3",
+                  "instances": [
+                    {
+                      "instance_name": "ridx_ridx_gray",
+                      "module_name": "AsyncResetSynchronizerShiftReg_w4_d3_i0",
+                      "instances": [
+                        {
+                          "instance_name": "output_chain",
+                          "module_name": "AsyncResetSynchronizerPrimitiveShiftReg_d3_i0",
+                          "instances": []
+                        },
+                        {
+                          "instance_name": "output_chain_1",
+                          "module_name": "AsyncResetSynchronizerPrimitiveShiftReg_d3_i0",
+                          "instances": []
+                        },
+                        {
+                          "instance_name": "output_chain_2",
+                          "module_name": "AsyncResetSynchronizerPrimitiveShiftReg_d3_i0",
+                          "instances": []
+                        },
+                        {
+                          "instance_name": "output_chain_3",
+                          "module_name": "AsyncResetSynchronizerPrimitiveShiftReg_d3_i0",
+                          "instances": []
+                        }
+                      ]
+                    },
+                    {
+                      "instance_name": "source_valid_0",
+                      "module_name": "AsyncValidSync",
+                      "instances": [
+                        {
+                          "instance_name": "io_out_source_valid_0",
+                          "module_name": "AsyncResetSynchronizerShiftReg_w1_d3_i0_1",
+                          "instances": [
+                            {
+                              "instance_name": "output_chain",
+                              "module_name": "AsyncResetSynchronizerPrimitiveShiftReg_d3_i0",
+                              "instances": []
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "instance_name": "source_valid_1",
+                      "module_name": "AsyncValidSync",
+                      "instances": [
+                        {
+                          "instance_name": "io_out_source_valid_0",
+                          "module_name": "AsyncResetSynchronizerShiftReg_w1_d3_i0_1",
+                          "instances": [
+                            {
+                              "instance_name": "output_chain",
+                              "module_name": "AsyncResetSynchronizerPrimitiveShiftReg_d3_i0",
+                              "instances": []
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "instance_name": "sink_extend",
+                      "module_name": "AsyncValidSync",
+                      "instances": [
+                        {
+                          "instance_name": "io_out_source_valid_0",
+                          "module_name": "AsyncResetSynchronizerShiftReg_w1_d3_i0_1",
+                          "instances": [
+                            {
+                              "instance_name": "output_chain",
+                              "module_name": "AsyncResetSynchronizerPrimitiveShiftReg_d3_i0",
+                              "instances": []
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "instance_name": "sink_valid",
+                      "module_name": "AsyncValidSync",
+                      "instances": [
+                        {
+                          "instance_name": "io_out_source_valid_0",
+                          "module_name": "AsyncResetSynchronizerShiftReg_w1_d3_i0_1",
+                          "instances": [
+                            {
+                              "instance_name": "output_chain",
+                              "module_name": "AsyncResetSynchronizerPrimitiveShiftReg_d3_i0",
+                              "instances": []
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "instance_name": "sink",
+                  "module_name": "AsyncQueueSink_3",
+                  "instances": [
+                    {
+                      "instance_name": "widx_widx_gray",
+                      "module_name": "AsyncResetSynchronizerShiftReg_w4_d3_i0",
+                      "instances": [
+                        {
+                          "instance_name": "output_chain",
+                          "module_name": "AsyncResetSynchronizerPrimitiveShiftReg_d3_i0",
+                          "instances": []
+                        },
+                        {
+                          "instance_name": "output_chain_1",
+                          "module_name": "AsyncResetSynchronizerPrimitiveShiftReg_d3_i0",
+                          "instances": []
+                        },
+                        {
+                          "instance_name": "output_chain_2",
+                          "module_name": "AsyncResetSynchronizerPrimitiveShiftReg_d3_i0",
+                          "instances": []
+                        },
+                        {
+                          "instance_name": "output_chain_3",
+                          "module_name": "AsyncResetSynchronizerPrimitiveShiftReg_d3_i0",
+                          "instances": []
+                        }
+                      ]
+                    },
+                    {
+                      "instance_name": "io_deq_bits_deq_bits_reg",
+                      "module_name": "ClockCrossingReg_w32",
+                      "instances": []
+                    },
+                    {
+                      "instance_name": "sink_valid_0",
+                      "module_name": "AsyncValidSync",
+                      "instances": [
+                        {
+                          "instance_name": "io_out_source_valid_0",
+                          "module_name": "AsyncResetSynchronizerShiftReg_w1_d3_i0_1",
+                          "instances": [
+                            {
+                              "instance_name": "output_chain",
+                              "module_name": "AsyncResetSynchronizerPrimitiveShiftReg_d3_i0",
+                              "instances": []
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "instance_name": "sink_valid_1",
+                      "module_name": "AsyncValidSync",
+                      "instances": [
+                        {
+                          "instance_name": "io_out_source_valid_0",
+                          "module_name": "AsyncResetSynchronizerShiftReg_w1_d3_i0_1",
+                          "instances": [
+                            {
+                              "instance_name": "output_chain",
+                              "module_name": "AsyncResetSynchronizerPrimitiveShiftReg_d3_i0",
+                              "instances": []
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "instance_name": "source_extend",
+                      "module_name": "AsyncValidSync",
+                      "instances": [
+                        {
+                          "instance_name": "io_out_source_valid_0",
+                          "module_name": "AsyncResetSynchronizerShiftReg_w1_d3_i0_1",
+                          "instances": [
+                            {
+                              "instance_name": "output_chain",
+                              "module_name": "AsyncResetSynchronizerPrimitiveShiftReg_d3_i0",
+                              "instances": []
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "instance_name": "source_valid",
+                      "module_name": "AsyncValidSync",
+                      "instances": [
+                        {
+                          "instance_name": "io_out_source_valid_0",
+                          "module_name": "AsyncResetSynchronizerShiftReg_w1_d3_i0_1",
+                          "instances": [
+                            {
+                              "instance_name": "output_chain",
+                              "module_name": "AsyncResetSynchronizerPrimitiveShiftReg_d3_i0",
+                              "instances": []
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "instance_name": "uartClockDomainWrapper",
+          "module_name": "ClockSinkDomain_4",
+          "instances": [
+            {
+              "instance_name": "uart_0",
+              "module_name": "TLUART",
+              "instances": [
+                {
+                  "instance_name": "intsource",
+                  "module_name": "IntSyncCrossingSource",
+                  "instances": [
+                    {
+                      "instance_name": "reg_0",
+                      "module_name": "AsyncResetRegVec_w1_i0",
+                      "instances": []
+                    }
+                  ]
+                },
+                {
+                  "instance_name": "monitor",
+                  "module_name": "TLMonitor_42",
+                  "instances": [
+                    {
+                      "instance_name": "plusarg_reader",
+                      "module_name": "plusarg_reader",
+                      "instances": []
+                    },
+                    {
+                      "instance_name": "plusarg_reader_1",
+                      "module_name": "plusarg_reader",
+                      "instances": []
+                    }
+                  ]
+                },
+                {
+                  "instance_name": "txm",
+                  "module_name": "UARTTx",
+                  "instances": [
+                    {
+                      "instance_name": "plusarg_reader",
+                      "module_name": "plusarg_reader",
+                      "instances": []
+                    },
+                    {
+                      "instance_name": "plusarg_reader_1",
+                      "module_name": "plusarg_reader",
+                      "instances": []
+                    }
+                  ]
+                },
+                {
+                  "instance_name": "txq",
+                  "module_name": "Queue_23",
+                  "instances": [
+                    {
+                      "instance_name": "ram_ext",
+                      "module_name": "ram_256x8",
+                      "instances": []
+                    }
+                  ]
+                },
+                {
+                  "instance_name": "rxm",
+                  "module_name": "UARTRx",
+                  "instances": []
+                },
+                {
+                  "instance_name": "rxq",
+                  "module_name": "Queue_23",
+                  "instances": [
+                    {
+                      "instance_name": "ram_ext",
+                      "module_name": "ram_256x8",
+                      "instances": []
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "instance_name": "intsink",
+          "module_name": "IntSyncSyncCrossingSink_1",
+          "instances": []
+        },
+        {
+          "instance_name": "chipyard_prcictrl_domain",
+          "module_name": "ClockSinkDomain_5",
+          "instances": [
+            {
+              "instance_name": "xbar",
+              "module_name": "TLXbar_9",
+              "instances": [
+                {
+                  "instance_name": "monitor",
+                  "module_name": "TLMonitor_43",
+                  "instances": [
+                    {
+                      "instance_name": "plusarg_reader",
+                      "module_name": "plusarg_reader",
+                      "instances": []
+                    },
+                    {
+                      "instance_name": "plusarg_reader_1",
+                      "module_name": "plusarg_reader",
+                      "instances": []
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "instance_name": "resetSynchronizer",
+              "module_name": "ClockGroupResetSynchronizer",
+              "instances": [
+                {
+                  "instance_name": "nodeOut_member_allClocks_uncore_reset_catcher",
+                  "module_name": "ResetCatchAndSync_d3",
+                  "instances": [
+                    {
+                      "instance_name": "io_sync_reset_chain",
+                      "module_name": "AsyncResetSynchronizerShiftReg_w1_d3_i0",
+                      "instances": [
+                        {
+                          "instance_name": "output_chain",
+                          "module_name": "AsyncResetSynchronizerPrimitiveShiftReg_d3_i0",
+                          "instances": []
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "instance_name": "clock_gater",
+              "module_name": "TileClockGater",
+              "instances": [
+                {
+                  "instance_name": "monitor",
+                  "module_name": "TLMonitor_44",
+                  "instances": [
+                    {
+                      "instance_name": "plusarg_reader",
+                      "module_name": "plusarg_reader",
+                      "instances": []
+                    },
+                    {
+                      "instance_name": "plusarg_reader_1",
+                      "module_name": "plusarg_reader",
+                      "instances": []
+                    }
+                  ]
+                },
+                {
+                  "instance_name": "regs_0",
+                  "module_name": "AsyncResetRegVec_w1_i1",
+                  "instances": []
+                }
+              ]
+            },
+            {
+              "instance_name": "fragmenter",
+              "module_name": "TLFragmenter_7",
+              "instances": [
+                {
+                  "instance_name": "monitor",
+                  "module_name": "TLMonitor_45",
+                  "instances": [
+                    {
+                      "instance_name": "plusarg_reader",
+                      "module_name": "plusarg_reader",
+                      "instances": []
+                    },
+                    {
+                      "instance_name": "plusarg_reader_1",
+                      "module_name": "plusarg_reader",
+                      "instances": []
+                    }
+                  ]
+                },
+                {
+                  "instance_name": "repeater",
+                  "module_name": "Repeater_6",
+                  "instances": []
+                }
+              ]
+            },
+            {
+              "instance_name": "reset_setter",
+              "module_name": "TileResetSetter",
+              "instances": [
+                {
+                  "instance_name": "monitor",
+                  "module_name": "TLMonitor_46",
+                  "instances": [
+                    {
+                      "instance_name": "plusarg_reader",
+                      "module_name": "plusarg_reader",
+                      "instances": []
+                    },
+                    {
+                      "instance_name": "plusarg_reader_1",
+                      "module_name": "plusarg_reader",
+                      "instances": []
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "instance_name": "fragmenter_1",
+              "module_name": "TLFragmenter_8",
+              "instances": [
+                {
+                  "instance_name": "monitor",
+                  "module_name": "TLMonitor_47",
+                  "instances": [
+                    {
+                      "instance_name": "plusarg_reader",
+                      "module_name": "plusarg_reader",
+                      "instances": []
+                    },
+                    {
+                      "instance_name": "plusarg_reader_1",
+                      "module_name": "plusarg_reader",
+                      "instances": []
+                    }
+                  ]
+                },
+                {
+                  "instance_name": "repeater",
+                  "module_name": "Repeater_6",
+                  "instances": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "instance_name": "aggregator",
+          "module_name": "ClockGroupAggregator_4",
+          "instances": []
+        },
+        {
+          "instance_name": "clockNamePrefixer",
+          "module_name": "ClockGroupParameterModifier",
+          "instances": []
+        },
+        {
+          "instance_name": "frequencySpecifier",
+          "module_name": "ClockGroupParameterModifier_1",
+          "instances": []
+        },
+        {
+          "instance_name": "clockGroupCombiner",
+          "module_name": "ClockGroupCombiner",
+          "instances": []
+        },
+        {
+          "instance_name": "dtm",
+          "module_name": "DebugTransportModuleJTAG",
+          "instances": [
+            {
+              "instance_name": "dtmInfoChain",
+              "module_name": "CaptureUpdateChain",
+              "instances": []
+            },
+            {
+              "instance_name": "dmiAccessChain",
+              "module_name": "CaptureUpdateChain_1",
+              "instances": []
+            },
+            {
+              "instance_name": "tapIO_idcodeChain",
+              "module_name": "CaptureChain",
+              "instances": []
+            },
+            {
+              "instance_name": "tapIO_controllerInternal",
+              "module_name": "JtagTapController",
+              "instances": [
+                {
+                  "instance_name": "stateMachine",
+                  "module_name": "JtagStateMachine",
+                  "instances": []
+                },
+                {
+                  "instance_name": "irChain",
+                  "module_name": "CaptureUpdateChain_2",
+                  "instances": []
+                }
+              ]
+            },
+            {
+              "instance_name": "tapIO_bypassChain",
+              "module_name": "JtagBypassChain",
+              "instances": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "instance_name": "iocell_custom_boot",
+      "module_name": "GenericDigitalInIOCell",
+      "instances": []
+    },
+    {
+      "instance_name": "system_debug_systemjtag_reset_catcher",
+      "module_name": "ResetCatchAndSync_d3",
+      "instances": [
+        {
+          "instance_name": "io_sync_reset_chain",
+          "module_name": "AsyncResetSynchronizerShiftReg_w1_d3_i0",
+          "instances": [
+            {
+              "instance_name": "output_chain",
+              "module_name": "AsyncResetSynchronizerPrimitiveShiftReg_d3_i0",
+              "instances": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "instance_name": "debug_reset_syncd_debug_reset_sync",
+      "module_name": "AsyncResetSynchronizerShiftReg_w1_d3_i0",
+      "instances": [
+        {
+          "instance_name": "output_chain",
+          "module_name": "AsyncResetSynchronizerPrimitiveShiftReg_d3_i0",
+          "instances": []
+        }
+      ]
+    },
+    {
+      "instance_name": "dmactiveAck_dmactiveAck",
+      "module_name": "ResetSynchronizerShiftReg_w1_d3_i0",
+      "instances": [
+        {
+          "instance_name": "output_chain",
+          "module_name": "AsyncResetSynchronizerPrimitiveShiftReg_d3_i0",
+          "instances": []
+        }
+      ]
+    },
+    {
+      "instance_name": "gated_clock_debug_clock_gate",
+      "module_name": "EICG_wrapper",
+      "instances": []
+    },
+    {
+      "instance_name": "iocell_jtag_TDO",
+      "module_name": "GenericDigitalOutIOCell",
+      "instances": []
+    },
+    {
+      "instance_name": "iocell_jtag_TDI",
+      "module_name": "GenericDigitalInIOCell",
+      "instances": []
+    },
+    {
+      "instance_name": "iocell_jtag_TMS",
+      "module_name": "GenericDigitalInIOCell",
+      "instances": []
+    },
+    {
+      "instance_name": "iocell_jtag_TCK",
+      "module_name": "GenericDigitalInIOCell",
+      "instances": []
+    },
+    {
+      "instance_name": "iocell_clock_tap",
+      "module_name": "GenericDigitalOutIOCell",
+      "instances": []
+    },
+    {
+      "instance_name": "iocell_serial_tl_0_clock_in",
+      "module_name": "GenericDigitalInIOCell",
+      "instances": []
+    },
+    {
+      "instance_name": "iocell_serial_tl_0_out_bits",
+      "module_name": "GenericDigitalOutIOCell",
+      "instances": []
+    },
+    {
+      "instance_name": "iocell_serial_tl_0_out_bits_1",
+      "module_name": "GenericDigitalOutIOCell",
+      "instances": []
+    },
+    {
+      "instance_name": "iocell_serial_tl_0_out_bits_2",
+      "module_name": "GenericDigitalOutIOCell",
+      "instances": []
+    },
+    {
+      "instance_name": "iocell_serial_tl_0_out_bits_3",
+      "module_name": "GenericDigitalOutIOCell",
+      "instances": []
+    },
+    {
+      "instance_name": "iocell_serial_tl_0_out_bits_4",
+      "module_name": "GenericDigitalOutIOCell",
+      "instances": []
+    },
+    {
+      "instance_name": "iocell_serial_tl_0_out_bits_5",
+      "module_name": "GenericDigitalOutIOCell",
+      "instances": []
+    },
+    {
+      "instance_name": "iocell_serial_tl_0_out_bits_6",
+      "module_name": "GenericDigitalOutIOCell",
+      "instances": []
+    },
+    {
+      "instance_name": "iocell_serial_tl_0_out_bits_7",
+      "module_name": "GenericDigitalOutIOCell",
+      "instances": []
+    },
+    {
+      "instance_name": "iocell_serial_tl_0_out_bits_8",
+      "module_name": "GenericDigitalOutIOCell",
+      "instances": []
+    },
+    {
+      "instance_name": "iocell_serial_tl_0_out_bits_9",
+      "module_name": "GenericDigitalOutIOCell",
+      "instances": []
+    },
+    {
+      "instance_name": "iocell_serial_tl_0_out_bits_10",
+      "module_name": "GenericDigitalOutIOCell",
+      "instances": []
+    },
+    {
+      "instance_name": "iocell_serial_tl_0_out_bits_11",
+      "module_name": "GenericDigitalOutIOCell",
+      "instances": []
+    },
+    {
+      "instance_name": "iocell_serial_tl_0_out_bits_12",
+      "module_name": "GenericDigitalOutIOCell",
+      "instances": []
+    },
+    {
+      "instance_name": "iocell_serial_tl_0_out_bits_13",
+      "module_name": "GenericDigitalOutIOCell",
+      "instances": []
+    },
+    {
+      "instance_name": "iocell_serial_tl_0_out_bits_14",
+      "module_name": "GenericDigitalOutIOCell",
+      "instances": []
+    },
+    {
+      "instance_name": "iocell_serial_tl_0_out_bits_15",
+      "module_name": "GenericDigitalOutIOCell",
+      "instances": []
+    },
+    {
+      "instance_name": "iocell_serial_tl_0_out_bits_16",
+      "module_name": "GenericDigitalOutIOCell",
+      "instances": []
+    },
+    {
+      "instance_name": "iocell_serial_tl_0_out_bits_17",
+      "module_name": "GenericDigitalOutIOCell",
+      "instances": []
+    },
+    {
+      "instance_name": "iocell_serial_tl_0_out_bits_18",
+      "module_name": "GenericDigitalOutIOCell",
+      "instances": []
+    },
+    {
+      "instance_name": "iocell_serial_tl_0_out_bits_19",
+      "module_name": "GenericDigitalOutIOCell",
+      "instances": []
+    },
+    {
+      "instance_name": "iocell_serial_tl_0_out_bits_20",
+      "module_name": "GenericDigitalOutIOCell",
+      "instances": []
+    },
+    {
+      "instance_name": "iocell_serial_tl_0_out_bits_21",
+      "module_name": "GenericDigitalOutIOCell",
+      "instances": []
+    },
+    {
+      "instance_name": "iocell_serial_tl_0_out_bits_22",
+      "module_name": "GenericDigitalOutIOCell",
+      "instances": []
+    },
+    {
+      "instance_name": "iocell_serial_tl_0_out_bits_23",
+      "module_name": "GenericDigitalOutIOCell",
+      "instances": []
+    },
+    {
+      "instance_name": "iocell_serial_tl_0_out_bits_24",
+      "module_name": "GenericDigitalOutIOCell",
+      "instances": []
+    },
+    {
+      "instance_name": "iocell_serial_tl_0_out_bits_25",
+      "module_name": "GenericDigitalOutIOCell",
+      "instances": []
+    },
+    {
+      "instance_name": "iocell_serial_tl_0_out_bits_26",
+      "module_name": "GenericDigitalOutIOCell",
+      "instances": []
+    },
+    {
+      "instance_name": "iocell_serial_tl_0_out_bits_27",
+      "module_name": "GenericDigitalOutIOCell",
+      "instances": []
+    },
+    {
+      "instance_name": "iocell_serial_tl_0_out_bits_28",
+      "module_name": "GenericDigitalOutIOCell",
+      "instances": []
+    },
+    {
+      "instance_name": "iocell_serial_tl_0_out_bits_29",
+      "module_name": "GenericDigitalOutIOCell",
+      "instances": []
+    },
+    {
+      "instance_name": "iocell_serial_tl_0_out_bits_30",
+      "module_name": "GenericDigitalOutIOCell",
+      "instances": []
+    },
+    {
+      "instance_name": "iocell_serial_tl_0_out_bits_31",
+      "module_name": "GenericDigitalOutIOCell",
+      "instances": []
+    },
+    {
+      "instance_name": "iocell_serial_tl_0_out_valid",
+      "module_name": "GenericDigitalOutIOCell",
+      "instances": []
+    },
+    {
+      "instance_name": "iocell_serial_tl_0_out_ready",
+      "module_name": "GenericDigitalInIOCell",
+      "instances": []
+    },
+    {
+      "instance_name": "iocell_serial_tl_0_in_bits",
+      "module_name": "GenericDigitalInIOCell",
+      "instances": []
+    },
+    {
+      "instance_name": "iocell_serial_tl_0_in_bits_1",
+      "module_name": "GenericDigitalInIOCell",
+      "instances": []
+    },
+    {
+      "instance_name": "iocell_serial_tl_0_in_bits_2",
+      "module_name": "GenericDigitalInIOCell",
+      "instances": []
+    },
+    {
+      "instance_name": "iocell_serial_tl_0_in_bits_3",
+      "module_name": "GenericDigitalInIOCell",
+      "instances": []
+    },
+    {
+      "instance_name": "iocell_serial_tl_0_in_bits_4",
+      "module_name": "GenericDigitalInIOCell",
+      "instances": []
+    },
+    {
+      "instance_name": "iocell_serial_tl_0_in_bits_5",
+      "module_name": "GenericDigitalInIOCell",
+      "instances": []
+    },
+    {
+      "instance_name": "iocell_serial_tl_0_in_bits_6",
+      "module_name": "GenericDigitalInIOCell",
+      "instances": []
+    },
+    {
+      "instance_name": "iocell_serial_tl_0_in_bits_7",
+      "module_name": "GenericDigitalInIOCell",
+      "instances": []
+    },
+    {
+      "instance_name": "iocell_serial_tl_0_in_bits_8",
+      "module_name": "GenericDigitalInIOCell",
+      "instances": []
+    },
+    {
+      "instance_name": "iocell_serial_tl_0_in_bits_9",
+      "module_name": "GenericDigitalInIOCell",
+      "instances": []
+    },
+    {
+      "instance_name": "iocell_serial_tl_0_in_bits_10",
+      "module_name": "GenericDigitalInIOCell",
+      "instances": []
+    },
+    {
+      "instance_name": "iocell_serial_tl_0_in_bits_11",
+      "module_name": "GenericDigitalInIOCell",
+      "instances": []
+    },
+    {
+      "instance_name": "iocell_serial_tl_0_in_bits_12",
+      "module_name": "GenericDigitalInIOCell",
+      "instances": []
+    },
+    {
+      "instance_name": "iocell_serial_tl_0_in_bits_13",
+      "module_name": "GenericDigitalInIOCell",
+      "instances": []
+    },
+    {
+      "instance_name": "iocell_serial_tl_0_in_bits_14",
+      "module_name": "GenericDigitalInIOCell",
+      "instances": []
+    },
+    {
+      "instance_name": "iocell_serial_tl_0_in_bits_15",
+      "module_name": "GenericDigitalInIOCell",
+      "instances": []
+    },
+    {
+      "instance_name": "iocell_serial_tl_0_in_bits_16",
+      "module_name": "GenericDigitalInIOCell",
+      "instances": []
+    },
+    {
+      "instance_name": "iocell_serial_tl_0_in_bits_17",
+      "module_name": "GenericDigitalInIOCell",
+      "instances": []
+    },
+    {
+      "instance_name": "iocell_serial_tl_0_in_bits_18",
+      "module_name": "GenericDigitalInIOCell",
+      "instances": []
+    },
+    {
+      "instance_name": "iocell_serial_tl_0_in_bits_19",
+      "module_name": "GenericDigitalInIOCell",
+      "instances": []
+    },
+    {
+      "instance_name": "iocell_serial_tl_0_in_bits_20",
+      "module_name": "GenericDigitalInIOCell",
+      "instances": []
+    },
+    {
+      "instance_name": "iocell_serial_tl_0_in_bits_21",
+      "module_name": "GenericDigitalInIOCell",
+      "instances": []
+    },
+    {
+      "instance_name": "iocell_serial_tl_0_in_bits_22",
+      "module_name": "GenericDigitalInIOCell",
+      "instances": []
+    },
+    {
+      "instance_name": "iocell_serial_tl_0_in_bits_23",
+      "module_name": "GenericDigitalInIOCell",
+      "instances": []
+    },
+    {
+      "instance_name": "iocell_serial_tl_0_in_bits_24",
+      "module_name": "GenericDigitalInIOCell",
+      "instances": []
+    },
+    {
+      "instance_name": "iocell_serial_tl_0_in_bits_25",
+      "module_name": "GenericDigitalInIOCell",
+      "instances": []
+    },
+    {
+      "instance_name": "iocell_serial_tl_0_in_bits_26",
+      "module_name": "GenericDigitalInIOCell",
+      "instances": []
+    },
+    {
+      "instance_name": "iocell_serial_tl_0_in_bits_27",
+      "module_name": "GenericDigitalInIOCell",
+      "instances": []
+    },
+    {
+      "instance_name": "iocell_serial_tl_0_in_bits_28",
+      "module_name": "GenericDigitalInIOCell",
+      "instances": []
+    },
+    {
+      "instance_name": "iocell_serial_tl_0_in_bits_29",
+      "module_name": "GenericDigitalInIOCell",
+      "instances": []
+    },
+    {
+      "instance_name": "iocell_serial_tl_0_in_bits_30",
+      "module_name": "GenericDigitalInIOCell",
+      "instances": []
+    },
+    {
+      "instance_name": "iocell_serial_tl_0_in_bits_31",
+      "module_name": "GenericDigitalInIOCell",
+      "instances": []
+    },
+    {
+      "instance_name": "iocell_serial_tl_0_in_valid",
+      "module_name": "GenericDigitalInIOCell",
+      "instances": []
+    },
+    {
+      "instance_name": "iocell_serial_tl_0_in_ready",
+      "module_name": "GenericDigitalOutIOCell",
+      "instances": []
+    },
+    {
+      "instance_name": "iocell_uart_0_rxd",
+      "module_name": "GenericDigitalInIOCell",
+      "instances": []
+    },
+    {
+      "instance_name": "iocell_uart_0_txd",
+      "module_name": "GenericDigitalOutIOCell",
+      "instances": []
+    }
+  ]
+}
