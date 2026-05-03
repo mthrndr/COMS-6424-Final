@@ -1,20 +1,47 @@
-FROM ubuntu:24.04
+FROM ubuntu:22.04
 
 ENV DEBIAN_FRONTEND=noninteractive
 
 RUN apt-get update && apt-get install -y \
-    git \
-    build-essential \
     bison \
+    build-essential \
+    ca-certificates \
+    cmake \
+    device-tree-compiler \
     flex \
-    libreadline-dev \
-    tcl-dev \
+    git \
+    libelf-dev \
     libffi-dev \
+    libreadline-dev \
     pkg-config \
     python3 \
-    cmake \
+    python3-dev \
+    python3-pip \
+    python3-venv \
+    tar \
+    tcl-dev \
+    verilator \
+    vim \
+    wget \
     zlib1g-dev \
     && rm -rf /var/lib/apt/lists/*
+
+# Download and extract core-v compiler from embecosm to /opt/corev as recommended
+RUN wget https://buildbot.embecosm.com/job/corev-gcc-ubuntu2204/47/artifact/corev-openhw-gcc-ubuntu2204-20240530.tar.gz \
+    && mkdir -p /opt/corev \
+    && tar -xf corev-openhw-gcc-ubuntu2204-20240530.tar.gz -C /opt/corev --strip-components=1 \
+    && rm corev-openhw-gcc-ubuntu2204-20240530.tar.gz
+
+ENV PATH="/opt/corev/bin:${PATH}"
+
+# Setup Venv
+RUN python3 -m venv /opt/venv
+ENV PATH="/opt/venv/bin:$PATH"
+RUN pip install --no-cache-dir --upgrade pip setuptools wheel
+
+# Install core-v-verif requirements
+COPY core-v-verif/bin/requirements.txt /tmp/requirements.txt
+RUN pip install --no-cache-dir  -r /tmp/requirements.txt
 
 # Build Yosys
 RUN git clone --recursive https://github.com/YosysHQ/yosys.git /tmp/yosys \
