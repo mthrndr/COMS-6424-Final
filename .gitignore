@@ -1,0 +1,5 @@
+# Synth outputs
+# *.json
+# *.v
+# *.log
+yosys-log.txt

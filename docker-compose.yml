@@ -1,0 +1,10 @@
+services:
+  hdl-shell:
+    build: .
+    image: coms-6424:latest
+    volumes:
+      - .:/workspace
+      - ~/.gitconfig:/etc/gitconfig:ro
+    working_dir: /workspace
+    stdin_open: true
+    tty: true
