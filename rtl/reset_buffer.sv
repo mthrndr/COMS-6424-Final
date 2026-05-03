@@ -10,12 +10,14 @@ module reset_buffer #(
 	input logic [31:0] debug_pc_o_x,
 	input logic instr_gnt_mem_x,
 	input logic data_gnt_mem_x,
+	input logic debug_pc_valid_o_x,
 	
 	input logic debug_havereset_o_s,
 	input logic debug_running_o_s,
 	input logic [31:0] debug_pc_o_s,
 	input logic instr_gnt_mem_s,
 	input logic data_gnt_mem_s,
+	input logic debug_pc_valid_o_s,
 
 	output logic rst_n_core_s,
 	output logic rst_n_core_x,
@@ -28,7 +30,9 @@ module reset_buffer #(
 	output logic [31:0] boot_addr_i_s,
 	output logic instr_gnt_i_s,
 	output logic data_gnt_i_s,
-	output logic fetch_enable_i_s
+	output logic fetch_enable_i_s,
+	output logic instr_gntpar_i_s,
+	output logic data_gntpar_i_s
 );
 
 	localparam RUNNING   = 2'b00;
@@ -41,6 +45,9 @@ module reset_buffer #(
 	reg [31:0] saved_pc_s;
 
 	reg [1:0] state;
+
+	assign instr_gntpar_i_s = ~instr_gnt_i_s;
+	assign data_gntpar_i_s  = ~data_gnt_i_s;
 
 	always @(posedge clk or negedge rst_n) begin
 		if(!rst_n) begin
@@ -67,7 +74,10 @@ module reset_buffer #(
 		end else begin
 			case(state)
 				RUNNING: begin
-					if(counter == 0) begin
+					boot_addr_i_x <= BOOT_ADDR;
+					boot_addr_i_s <= BOOT_ADDR;
+
+					if(counter == 0 && debug_pc_valid_o_x && debug_pc_valid_o_s) begin
 						saved_pc_x <= debug_pc_o_x;
 						saved_pc_s <= debug_pc_o_s;
 
@@ -81,9 +91,18 @@ module reset_buffer #(
 						rst_n_core_x   <= 0;
 						
 						state <= RESETTING;
+					end else if(counter == 0) begin
+						instr_gnt_i_x <= instr_gnt_mem_x;
+						instr_gnt_i_s <= instr_gnt_mem_s;
+
+						data_gnt_i_x  <= data_gnt_mem_x;
+						data_gnt_i_s  <= data_gnt_mem_s;
+
+						fetch_enable_i_x <= 0;
+						fetch_enable_i_s <= 0;
 					end else begin
 						counter <= counter - 1;
-					
+
 						instr_gnt_i_x <= instr_gnt_mem_x;
 						instr_gnt_i_s <= instr_gnt_mem_s;
 
