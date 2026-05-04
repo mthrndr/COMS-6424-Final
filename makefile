@@ -17,7 +17,7 @@ test-x:
 		CV_CORE=cv32e40x \
 		CV_CORE_PATH=$(CORE_X_PATH) \
 		DESIGN_RTL_DIR=$(CORE_X_PATH)/rtl \
-		VERI_COMPILE_FLAGS="-Wno-BLKANDNBLK -Wno-COMBDLY +define+COREV_ASSERT_OFF /workspace/cores/cv32e40x/rtl/cv32e40x_if_xif.sv" \
+		VERI_COMPILE_FLAGS="-Wno-BLKANDNBLK -Wno-COMBDLY +define+COREV_ASSERT_OFF /cores/cv32e40x/rtl/cv32e40x_if_xif.sv" \
 		veri-test
 
 test-s:

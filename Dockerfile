@@ -14,7 +14,11 @@ RUN apt-get update && apt-get install -y \
     help2man \
     libelf-dev \
     libffi-dev \
+    libfl2 \
+    libfl-dev \
     libreadline-dev \
+    libgoogle-perftools-dev \
+    numactl \
     pkg-config \
     python3 \
     python3-dev \
