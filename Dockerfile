@@ -3,6 +3,7 @@ FROM ubuntu:22.04
 ENV DEBIAN_FRONTEND=noninteractive
 
 RUN apt-get update && apt-get install -y \
+    autoconf \
     bison \
     build-essential \
     ca-certificates \
@@ -10,6 +11,7 @@ RUN apt-get update && apt-get install -y \
     device-tree-compiler \
     flex \
     git \
+    help2man \
     libelf-dev \
     libffi-dev \
     libreadline-dev \
@@ -20,11 +22,18 @@ RUN apt-get update && apt-get install -y \
     python3-venv \
     tar \
     tcl-dev \
-    verilator \
     vim \
     wget \
     zlib1g-dev \
     && rm -rf /var/lib/apt/lists/*
+
+# We need a more modern version of verilator than the one that is in the repo
+# for ubuntu 22.04
+RUN git clone https://github.com/verilator/verilator && \
+    cd verilator && \
+    git checkout v5.020 && \
+    autoconf && ./configure && \
+    make -j$(nproc) && make install
 
 # Download and extract core-v compiler from embecosm to /opt/corev as recommended
 RUN wget https://buildbot.embecosm.com/job/corev-gcc-ubuntu2204/47/artifact/corev-openhw-gcc-ubuntu2204-20240530.tar.gz \

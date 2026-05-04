@@ -1,21 +1,29 @@
 export CV_SW_TOOLCHAIN	:= /opt/corev
 export CV_SW_PREFIX		:= riscv32-corev-elf-
+export DESIGN_RTL_DIR := $(CORE_X_PATH)/rtl
 
-CORE_X_REPO := $(shell pwd)/cores/cv32e40x
-CORE_S_REPO := $(shell pwd)/cores/cv32e40s
-VERIF_X_DIR := core-v-verif/cv32e40x/sim/uvmt
-VERIF_S_DIR := core-v-verif/cv32e40s/sim/uvmt
+CORE_X_PATH := $(shell pwd)/cores/cv32e40x
+CORE_S_PATH := $(shell pwd)/cores/cv32e40s
+VERIF_X_DIR := core-v-verif/cv32e40x/sim/core
+VERIF_S_DIR := core-v-verif/cv32e40s/sim/core
 
 .PHONY: test-x test-s
 
 test-x:
+	rm -rf core-v-verif/core-v-cores/cv32e40x
 	$(MAKE) -C ${VERIF_X_DIR} \
-		SIMULATOR=verilator $(TEST)\
+		SIMULATOR=verilator \
+		TEST=$(TEST) \
 		CV_CORE=cv32e40x \
-		CV_CORE_REPO=$(CORE_X_REPO)
+		CV_CORE_PATH=$(CORE_X_PATH) \
+		DESIGN_RTL_DIR=$(CORE_X_PATH)/rtl \
+		VERI_COMPILE_FLAGS="-Wno-BLKANDNBLK -Wno-COMBDLY +define+COREV_ASSERT_OFF /workspace/cores/cv32e40x/rtl/cv32e40x_if_xif.sv" \
+		veri-test
 
 test-s:
+	rm -rf core-v-verif/core-v-cores/cv32e40s
 	$(MAKE) -C ${VERIF_S_DIR} \
-		SIMULATOR=verilator $(TEST)\
+		SIMULATOR=verilator \
+		TEST=$(TEST) \
 		CV_CORE=cv32e40s \
-		CV_CORE_REPO=$(CORE_S_REPO)
+		CV_CORE_PATH=$(CORE_S_PATH)
