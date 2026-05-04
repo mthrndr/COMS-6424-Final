@@ -1,0 +1,7 @@
+plugin -i slang
+read_slang ../rtl/reset_buffer.sv
+hierarchy -check -top reset_buffer
+proc
+opt
+synth -top reset_buffer
+write_verilog -noattr out/reset_buffer_out.v
