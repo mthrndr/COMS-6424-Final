@@ -1,6 +1,7 @@
 export CV_SW_TOOLCHAIN	:= /opt/corev
-export CV_SW_PREFIX		:= riscv32-corev-elf-
-export DESIGN_RTL_DIR := $(CORE_X_PATH)/rtl
+export CV_SW_PREFIX	:= riscv32-corev-elf-
+export DESIGN_RTL_DIR   := $(CORE_X_PATH)/rtl
+export CV_SW_MARCH	:= rv32imc_zicsr
 
 CORE_X_PATH := $(shell pwd)/cores/cv32e40x
 CORE_S_PATH := $(shell pwd)/cores/cv32e40s
@@ -17,7 +18,7 @@ test-x:
 		CV_CORE=cv32e40x \
 		CV_CORE_PATH=$(CORE_X_PATH) \
 		DESIGN_RTL_DIR=$(CORE_X_PATH)/rtl \
-		VERI_COMPILE_FLAGS="-Wno-BLKANDNBLK -Wno-COMBDLY +define+COREV_ASSERT_OFF /cores/cv32e40x/rtl/cv32e40x_if_xif.sv" \
+		VERI_COMPILE_FLAGS="-Wno-BLKANDNBLK -Wno-COMBDLY +define+COREV_ASSERT_OFF" \
 		veri-test
 
 test-s:
