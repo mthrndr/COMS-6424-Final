@@ -33,3 +33,9 @@ test-s:
 		CV_SW_MARCH=$(CV_SW_MARCH) \
 		VERI_COMPILE_FLAGS="-Wno-BLKANDNBLK -Wno-COMBDLY +define+COREV_ASSERT_OFF" \
 		veri-test
+
+apply-patches:
+	cd core-v-cores/cv32e40x && git apply ../../patches/cv32e40x_core.patch
+
+remove-patches:
+	cd core-v-cores/cv32e40x && git checkout -- rtl/cv32e40x_core.sv

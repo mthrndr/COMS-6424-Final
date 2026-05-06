@@ -1,0 +1,22 @@
+diff --git a/rtl/cv32e40x_core.sv b/rtl/cv32e40x_core.sv
+index a93993a1..2c93554b 100644
+--- a/rtl/cv32e40x_core.sv
++++ b/rtl/cv32e40x_core.sv
+@@ -126,6 +126,8 @@ module cv32e40x_core import cv32e40x_pkg::*;
+   output logic        debug_havereset_o,
+   output logic        debug_running_o,
+   output logic        debug_halted_o,
++  output logic        debug_pc_valid_o,
++  output logic [31:0] debug_pc_o,
+ 
+   // CPU Control Signals
+   input  logic        fetch_enable_i,
+@@ -293,6 +295,8 @@ module cv32e40x_core import cv32e40x_pkg::*;
+   assign debug_havereset_o = ctrl_fsm.debug_havereset;
+   assign debug_halted_o    = ctrl_fsm.debug_halted;
+   assign debug_running_o   = ctrl_fsm.debug_running;
++  assign debug_pc_valid_o  = ctrl_fsm.mhpmevent.minstret;
++  assign debug_pc_o        = ex_wb_pipe.pc;
+ 
+   // Used (only) by verification environment
+   assign irq_ack = ctrl_fsm.irq_ack;
