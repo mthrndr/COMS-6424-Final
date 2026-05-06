@@ -18,6 +18,7 @@ test-x:
 		CV_CORE=cv32e40x \
 		CV_CORE_PATH=$(CORE_X_PATH) \
 		DESIGN_RTL_DIR=$(CORE_X_PATH)/rtl \
+		CV_SW_MARCH=$(CV_SW_MARCH) \
 		VERI_COMPILE_FLAGS="-Wno-BLKANDNBLK -Wno-COMBDLY +define+COREV_ASSERT_OFF" \
 		veri-test
 
@@ -27,4 +28,8 @@ test-s:
 		SIMULATOR=verilator \
 		TEST=$(TEST) \
 		CV_CORE=cv32e40s \
-		CV_CORE_PATH=$(CORE_S_PATH)
+		CV_CORE_PATH=$(CORE_S_PATH) \
+		DESIGN_RTL_DIR=$(CORE_S_PATH)/rtl \
+		CV_SW_MARCH=$(CV_SW_MARCH) \
+		VERI_COMPILE_FLAGS="-Wno-BLKANDNBLK -Wno-COMBDLY +define+COREV_ASSERT_OFF" \
+		veri-test
