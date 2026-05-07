@@ -34,8 +34,12 @@ test-s:
 		VERI_COMPILE_FLAGS="-Wno-BLKANDNBLK -Wno-COMBDLY +define+COREV_ASSERT_OFF" \
 		veri-test
 
+# Maybe not needed anymore?? It seems the new x I pulled has the diffs I
+# need...
 apply-patches:
-	cd core-v-cores/cv32e40x && git apply ../../patches/cv32e40x_core.patch
+	cd tmp_cores/cv32e40x && git apply ../../patches/cv32e40x_core.patch
 
 remove-patches:
-	cd core-v-cores/cv32e40x && git checkout -- rtl/cv32e40x_core.sv
+	cd tmp_cores/cv32e40x && git checkout -- rtl/cv32e40x_core.sv
+
+RTL_FILES = rtl/
