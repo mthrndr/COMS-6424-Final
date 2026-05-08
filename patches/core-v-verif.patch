@@ -1,0 +1,232 @@
+From 9b764fdd91b4c1e46a09a2f6ae80953c2f043f20 Mon Sep 17 00:00:00 2001
+From: Jayden <jayleesin@gmail.com>
+Date: Tue, 5 May 2026 22:11:08 -0400
+Subject: [PATCH 1/2] x core tb pin renaming
+
+---
+ cv32e40x/tb/core/cv32e40x_tb_wrapper.sv | 1 -
+ 1 file changed, 1 deletion(-)
+
+diff --git a/cv32e40x/tb/core/cv32e40x_tb_wrapper.sv b/cv32e40x/tb/core/cv32e40x_tb_wrapper.sv
+index c73af30a..43ece4ec 100644
+--- a/cv32e40x/tb/core/cv32e40x_tb_wrapper.sv
++++ b/cv32e40x/tb/core/cv32e40x_tb_wrapper.sv
+@@ -141,7 +141,6 @@ module cv32e40x_tb_wrapper
+ 
+         // Event wakeup signals
+         .wu_wfe_i               ( 1'b0                  ),
+-        .wu_wrs_i               ( 1'b0                  ),
+ 
+         .clic_irq_i             (  '0                   ),
+         .clic_irq_id_i          (  '0                   ),
+-- 
+2.25.1
+
+
+From 7bc401971f24b60e38189037085ff0fa819f02e4 Mon Sep 17 00:00:00 2001
+From: Jayden <jayleesin@gmail.com>
+Date: Tue, 5 May 2026 23:04:02 -0400
+Subject: [PATCH 2/2] Unsuccessful hello-world for s core. Compiles fine but
+ hangs due to security feature creating a trap
+
+---
+ cv32e40s/bsp/crt0.S                     |   3 -
+ cv32e40s/sim/core/Makefile              |   9 +-
+ cv32e40s/tb/core/cv32e40s_tb_wrapper.sv | 122 ++++++++++++++++--------
+ cv32e40s/tb/core/mm_ram.sv              |   6 +-
+ 4 files changed, 95 insertions(+), 45 deletions(-)
+
+diff --git a/cv32e40s/bsp/crt0.S b/cv32e40s/bsp/crt0.S
+index 91a77b55..a7748ea0 100644
+--- a/cv32e40s/bsp/crt0.S
++++ b/cv32e40s/bsp/crt0.S
+@@ -28,9 +28,6 @@ _start:
+   addi  gp, gp, %pcrel_lo(1b)
+ 
+ /* initialize vector table pointer */
+-1:auipc a0, %pcrel_hi(__jvt_base$)
+-  addi  a0, a0, %pcrel_lo(1b)
+-  csrw  jvt, a0
+ .option pop
+ 
+ /* initialize stack pointer */
+diff --git a/cv32e40s/sim/core/Makefile b/cv32e40s/sim/core/Makefile
+index a13c2147..90d20359 100644
+--- a/cv32e40s/sim/core/Makefile
++++ b/cv32e40s/sim/core/Makefile
+@@ -46,6 +46,13 @@ MAKE_DIR       = $(PWD)
+ MAKE_PATH     := $(shell dirname $(realpath $(firstword $(MAKEFILE_LIST))))
+ COREV_PROJ     = cv32
+ CORE_V_VERIF   = $(abspath $(MAKE_PATH)/../../..)
++RUN_INDEX                ?= 0
++SIM_RESULTS              = simulation_results
++SIM_TEST_RESULTS         = $(SIM_RESULTS)/$(TEST)
++SIM_RUN_RESULTS          = $(SIM_TEST_RESULTS)/$(RUN_INDEX)
++SIM_TEST_PROGRAM_RESULTS = $(SIM_RUN_RESULTS)/test_program
++SIM_BSP_RESULTS          = $(SIM_TEST_PROGRAM_RESULTS)/bsp
++VERI_CUSTOM              = $(SIM_RESULTS)
+ DATE           = $(shell date +%F)
+ WAVES          = 0
+ 
+@@ -127,7 +134,7 @@ VERI_FLAGS         +=
+ VERI_COMPILE_FLAGS += -Wno-BLKANDNBLK +define+COREV_ASSERT_OFF $(SV_CMP_FLAGS) # hope this doesn't hurt us in the long run
+ VERI_TRACE         ?=
+ VERI_OBJ_DIR       ?= cobj_dir
+-VERI_LOG_DIR       ?= cobj_dir/logs
++VERI_LOG_DIR       ?= $(SIM_TEST_PROGRAM_RESULTS)
+ VERI_CFLAGS        += -O2
+ 
+ #riviera configuration
+diff --git a/cv32e40s/tb/core/cv32e40s_tb_wrapper.sv b/cv32e40s/tb/core/cv32e40s_tb_wrapper.sv
+index 3a116df7..1ff68d1b 100644
+--- a/cv32e40s/tb/core/cv32e40s_tb_wrapper.sv
++++ b/cv32e40s/tb/core/cv32e40s_tb_wrapper.sv
+@@ -80,44 +80,90 @@ module cv32e40s_tb_wrapper
+ //      );
+ 
+     // instantiate the core
+-    cv32e40s_core cv32e40s_core_i
+-        (
+-         .clk_i                  ( clk_i                 ),
+-         .rst_ni                 ( rst_ni                ),
+-         
+-         .scan_cg_en_i           ( '0                    ),
+-
+-         .boot_addr_i            ( BOOT_ADDR             ),
+-         .dm_halt_addr_i         ( DM_HALTADDRESS        ),
+-         .mhartid_i              ( HART_ID               ),
+-         .mimpid_patch_i         ( IMP_PATCH_ID          ),
+-
+-         .instr_req_o            ( instr_req             ),
+-         .instr_gnt_i            ( instr_gnt             ),
+-         .instr_rvalid_i         ( instr_rvalid          ),
+-         .instr_addr_o           ( instr_addr            ),
+-         .instr_rdata_i          ( instr_rdata           ),
+-
+-         .data_req_o             ( data_req              ),
+-         .data_gnt_i             ( data_gnt              ),
+-         .data_rvalid_i          ( data_rvalid           ),
+-         .data_we_o              ( data_we               ),
+-         .data_be_o              ( data_be               ),
+-         .data_addr_o            ( data_addr             ),
+-         .data_wdata_o           ( data_wdata            ),
+-         .data_rdata_i           ( data_rdata            ),
+-
+-         // Interrupts verified in UVM environment
+-         .irq_i                  ( {32{1'b0}}            ),
+-         .irq_ack_o              ( irq_ack               ),
+-         .irq_id_o               ( irq_id_out            ),
+-
+-         .debug_req_i            ( debug_req             ),
+-
+-         .fetch_enable_i         ( fetch_enable_i        ),
+-         .core_sleep_o           ( core_sleep_o          )
+-       );
+-
++    cv32e40s_core
++   	#(.SMCLIC		(0),
++	  .PMA_NUM_REGIONS	(0),
++	  .PMP_NUM_REGIONS	(0)
++  	 )
++    cv32e40s_core_i
++    	 (.clk_i                  ( clk_i                 ),
++	  .rst_ni                 ( rst_ni                ),
++	  .scan_cg_en_i           ( '0                    ),
++
++	  .boot_addr_i            ( BOOT_ADDR             ),
++	  .dm_exception_addr_i    ( '0                    ),
++	  .dm_halt_addr_i         ( DM_HALTADDRESS        ),
++	  .mhartid_i              ( HART_ID               ),
++	  .mimpid_patch_i         ( IMP_PATCH_ID          ),
++	  .mtvec_addr_i           ( '0                    ),
++
++	  .instr_req_o            ( instr_req             ),
++	  .instr_gnt_i            ( instr_gnt             ),
++	  .instr_rvalid_i         ( instr_rvalid          ),
++	  .instr_addr_o           ( instr_addr            ),
++	  .instr_memtype_o        (                       ),
++	  .instr_prot_o           (                       ),
++	  .instr_dbg_o            (                       ),
++	  .instr_rdata_i          ( instr_rdata           ),
++	  .instr_err_i            ( 1'b0                  ),
++	  .instr_reqpar_o         (                       ),
++	  .instr_gntpar_i         ( 1'b0                  ),
++	  .instr_rvalidpar_i      ( 1'b0                  ),
++	  .instr_achk_o           (                       ),
++	  .instr_rchk_i           ( '0                    ),
++
++	  .data_req_o             ( data_req              ),
++	  .data_gnt_i             ( data_gnt              ),
++	  .data_rvalid_i          ( data_rvalid           ),
++	  .data_addr_o            ( data_addr             ),
++	  .data_be_o              ( data_be               ),
++	  .data_we_o              ( data_we               ),
++	  .data_wdata_o           ( data_wdata            ),
++	  .data_memtype_o         (                       ),
++	  .data_prot_o            (                       ),
++	  .data_dbg_o             (                       ),
++	  .data_rdata_i           ( data_rdata            ),
++	  .data_err_i             ( 1'b0                  ),
++	  .data_reqpar_o          (                       ),
++	  .data_gntpar_i          ( 1'b0                  ),
++	  .data_rvalidpar_i       ( 1'b0                  ),
++	  .data_achk_o            (                       ),
++	  .data_rchk_i            ( '0                    ),
++
++	  .mcycle_o               (                       ),
++
++	  .irq_i                  ( {32{1'b0}}            ),
++	  .wu_wfe_i               ( 1'b0                  ),
++	  .clic_irq_i             ( 1'b0                  ),
++	  .clic_irq_id_i          ( '0                    ),
++	  .clic_irq_level_i       ( '0                    ),
++	  .clic_irq_priv_i        ( '0                    ),
++	  .clic_irq_shv_i         ( 1'b0                  ),
++
++	  .fencei_flush_req_o     (                       ),
++	  .fencei_flush_ack_i     ( 1'b1                  ),
++
++	  .alert_minor_o          (                       ),
++	  .alert_major_o          (                       ),
++
++	  .debug_req_i            ( debug_req             ),
++	  .debug_havereset_o      (                       ),
++	  .debug_running_o        (                       ),
++	  .debug_halted_o         (                       ),
++
++	  .fetch_enable_i         ( fetch_enable_i        ),
++	  .core_sleep_o           ( core_sleep_o          )
++    	 );
++    //Debugging
++    int unsigned dbg_cycles = 0;
++    always_ff @(posedge clk_i) begin
++	if(rst_ni) begin
++		dbg_cycles <= dbg_cycles + 1;
++		if(dbg_cycles < 100 || (dbg_cycles % 1000 == 0)) begin
++			$display("[%0t] cyc=%0d pc=%h irq=%b dreq=%b we=%b daddr=%h slp=%b mcause=%h", $time, dbg_cycles, instr_addr, instr_req, data_req, data_we, data_addr, core_sleep_o, cv32e40s_core_i.cs_registers_i.mcause_q);
++		end
++	end
++    end
+     // this handles read to RAM and memory mapped pseudo peripherals
+     mm_ram
+         #(.RAM_ADDR_WIDTH (RAM_ADDR_WIDTH),
+diff --git a/cv32e40s/tb/core/mm_ram.sv b/cv32e40s/tb/core/mm_ram.sv
+index d2457d47..75a442c6 100644
+--- a/cv32e40s/tb/core/mm_ram.sv
++++ b/cv32e40s/tb/core/mm_ram.sv
+@@ -75,9 +75,9 @@ module mm_ram
+ 
+     localparam int                        RND_IRQ_ID     = 31;
+ 
+-    localparam int                        MMADDR_PRINT          = 32'h1000_0000;
+-    localparam int                        MMADDR_TESTSTATUS     = 32'h2000_0000;
+-    localparam int                        MMADDR_EXIT           = 32'h2000_0004;
++    localparam int                        MMADDR_PRINT      = 32'h0080_0000;
++    localparam int                        MMADDR_TESTSTATUS = 32'h0080_00c0;
++    localparam int                        MMADDR_EXIT       = 32'h0080_00c4;
+     localparam int                        MMADDR_SIGBEGIN       = 32'h2000_0008;
+     localparam int                        MMADDR_SIGEND         = 32'h2000_000C;
+     localparam int                        MMADDR_SIGDUMP        = 32'h2000_0010;
+-- 
+2.25.1
+
