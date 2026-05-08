@@ -38,6 +38,7 @@ test-s:
 # need...
 apply-patches:
 	cd tmp_cores/cv32e40x && git apply ../../patches/cv32e40x_core.patch
+	cd core-v-verif && git apply am ../patches/core-v-verif.patch
 
 remove-patches:
 	cd tmp_cores/cv32e40x && git checkout -- rtl/cv32e40x_core.sv
