@@ -38,9 +38,13 @@ test-s:
 # need...
 apply-patches:
 	cd tmp_cores/cv32e40x && git apply ../../patches/cv32e40x_core.patch
-	cd core-v-verif && git apply am ../patches/core-v-verif.patch
+	cd core-v-verif && git am ../patches/core-v-verif.patch
 
 remove-patches:
 	cd tmp_cores/cv32e40x && git checkout -- rtl/cv32e40x_core.sv
+
+change-core-ver:
+	cd cores/cv32e40x && git checkout 0.9.0
+	cd cores/cv32e40s && git checkout 0.8.0
 
 RTL_FILES = rtl/
