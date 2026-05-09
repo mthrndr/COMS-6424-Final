@@ -8,6 +8,7 @@ module fifo #(
     input   logic               clk,
     input   logic               w_en,
     input   logic               r_en,
+    input   logic		flush,
     input   logic   [WIDTH-1:0] d_in,
     output  logic   [WIDTH-1:0] d_out,
     output  logic              	empty,
@@ -39,8 +40,12 @@ module fifo #(
             if (valid_w) begin
                 fifo[w_ptr] <= d_in;
             end
-
-            if (valid_w && valid_r) begin
+	    if (flush) begin
+		w_ptr	    <= 0;
+		r_ptr	    <= 0;
+		full	    <= 0;
+		empty	    <= 1;
+	    end else if (valid_w && valid_r) begin
                 w_ptr       <= w_ptr + 1;
                 r_ptr       <= r_ptr + 1;
             end else if (valid_w) begin
@@ -51,8 +56,7 @@ module fifo #(
                 r_ptr       <= r_ptr + 1;
                 empty       <= (w_ptr == (r_ptr + 1'b1));
                 full        <= 0;
-            end
-
+	    end
         end
     end
 
