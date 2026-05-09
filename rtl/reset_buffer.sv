@@ -76,6 +76,8 @@ module reset_buffer #(
 				RUNNING: begin
 					boot_addr_i_x <= BOOT_ADDR;
 					boot_addr_i_s <= BOOT_ADDR;
+					rst_n_core_x  <= 1;
+					rst_n_core_s  <= 1;
 
 					if(counter == 0 && debug_pc_valid_o_x && debug_pc_valid_o_s) begin
 						saved_pc_x <= debug_pc_o_x;
@@ -140,6 +142,9 @@ module reset_buffer #(
 				end
 
 				RESUMING: begin
+					rst_n_core_x <= 1;
+					rst_n_core_s <= 1;
+
 					if(debug_running_o_x && debug_running_o_s) begin
 						counter <= TIMER;
 						

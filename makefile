@@ -8,7 +8,7 @@ CORE_S_PATH := $(shell pwd)/cores/cv32e40s
 VERIF_X_DIR := core-v-verif/cv32e40x/sim/core
 VERIF_S_DIR := core-v-verif/cv32e40s/sim/core
 
-.PHONY: test-x test-s
+.PHONY: test-x test-s test-reset clean-reset-test
 
 test-x:
 	rm -rf core-v-verif/core-v-cores/cv32e40x
@@ -34,6 +34,14 @@ test-s:
 		VERI_COMPILE_FLAGS="-Wno-BLKANDNBLK -Wno-COMBDLY +define+COREV_ASSERT_OFF" \
 		veri-test
 
+test-reset:
+	$(MAKE) -C sim/ \
+	CV32E40X_HOME=$(CORE_X_PATH) \
+	CV32E40S_HOME=$(CORE_S_PATH)
+
+clean-reset-test:
+	$(MAKE) -C sim/ clean
+
 # Maybe not needed anymore?? It seems the new x I pulled has the diffs I
 # need...
 apply-patches:
@@ -45,6 +53,6 @@ remove-patches:
 
 change-core-ver:
 	cd cores/cv32e40x && git checkout 0.9.0
-	cd cores/cv32e40s && git checkout 0.8.0
+	cd cores/cv32e40s && git checkout 0.9.0
 
 RTL_FILES = rtl/
