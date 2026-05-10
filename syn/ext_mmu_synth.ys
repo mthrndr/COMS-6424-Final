@@ -1,0 +1,7 @@
+plugin -i slang
+read_slang ../rtl/ext_mmu.sv ../rtl/fifo.sv
+hierarchy -check -top ext_mmu
+proc
+opt
+synth -top ext_mmu
+write_verilog -noattr out/ext_mmu_out.v

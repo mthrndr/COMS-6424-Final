@@ -1,0 +1,7 @@
+plugin -i slang
+read_slang ../rtl/comparison_unit.sv ../rtl/fifo.sv
+hierarchy -check -top comparison_unit
+proc
+opt
+synth -top comparison_unit
+write_verilog -noattr out/comparison_unit_out.v
