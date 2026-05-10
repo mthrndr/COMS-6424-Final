@@ -1,7 +1,7 @@
 module ext_mmu #(
   parameter int unsigned ADDR_W          = 32,
   parameter int unsigned DATA_W          = 32,
-  parameter int unsigned FIFO_DEPTH      = 2,
+  parameter int unsigned FIFO_DEPTH      = 4, //Make this 64 for div heavy programs
   parameter int unsigned MAX_OUTSTANDING = 2,
   parameter bit          DATA_BUS        = 1'b1, // D-bus = 1, I-bus = 0 - I-bus on s-core will be weird because of dummy instructions
   parameter bit          A_EXT_X         = 1'b0, // 1 if cv32e40x has A extension
