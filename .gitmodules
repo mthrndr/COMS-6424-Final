@@ -4,12 +4,12 @@
 [submodule "cores/cv32e40x"]
     path = cores/cv32e40x
 	url = https://github.com/openhwgroup/cv32e40x
-[submodule "core-v-verif"]
-	path = core-v-verif
-	url = https://github.com/openhwgroup/core-v-verif.git
 [submodule "tmp_cores/cv32e40x"]
 	path = tmp_cores/cv32e40x
 	url = git@github.com:openhwgroup/cv32e40x.git
 [submodule "tmp_cores/cv32e40s"]
 	path = tmp_cores/cv32e40s
 	url = git@github.com:openhwgroup/cv32e40s.git
+[submodule "core-v-verif"]
+	path = core-v-verif
+	url = https://github.com/openhwgroup/core-v-verif.git
