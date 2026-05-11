@@ -89,5 +89,19 @@ build: check-paths $(GEN_X_MANIFEST) $(GEN_S_MANIFEST)
 run: build
 	./$(BIN)
 
+# FIFO TB
+FIFO_TOP  = tb_fifo
+
+FIFO_SRCS = $(RTL_DIR)/fifo.sv fifo_tb.sv 
+FIFO_BIN  = $(OBJ_DIR)/V$(FIFO_TOP)
+
+FIFO_VFLAGS = $(subst --top $(TOP),--top $(FIFO_TOP),$(VERILATOR_FLAGS))
+
+build-fifo: | $(OBJ_DIR)
+	$(VERILATOR) $(FIFO_VFLAGS) $(FIFO_SRCS)
+
+run-fifo: build-fifo
+	./$(FIFO_BIN)
+
 clean:
 	rm -rf $(OBJ_DIR) reset_buffer_tb.vcd

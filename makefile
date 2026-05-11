@@ -45,7 +45,7 @@ clean-reset-test:
 # Maybe not needed anymore?? It seems the new x I pulled has the diffs I
 # need...
 apply-patches:
-	cd tmp_cores/cv32e40x && git apply ../../patches/cv32e40x_core.patch
+	# cd tmp_cores/cv32e40x && git apply ../../patches/cv32e40x_core.patch
 	cd core-v-verif && git am ../patches/core-v-verif.patch
 
 remove-patches:
