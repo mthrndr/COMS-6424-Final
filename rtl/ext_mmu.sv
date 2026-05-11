@@ -214,8 +214,11 @@ module ext_mmu #(
   logic             mem_resp_hs;
 
   always_ff @(posedge clk or negedge rst_n) begin
-    if (!rst_n) outstanding_q <= '0;
-    else        outstanding_q <= outstanding_d;
+	if (!rst_n) begin
+		outstanding_q <= '0;
+	end else begin
+	   	outstanding_q <= outstanding_d;
+	end
   end
 
   always_comb begin
@@ -231,8 +234,7 @@ module ext_mmu #(
   assign outstanding_room = (outstanding_q < MAX_OUTSTANDING[OUT_W-1:0]);
 
   logic forward;
-  assign forward = both_head_valid && heads_match
-                && outstanding_room && !mismatch_q;
+  assign forward = both_head_valid && heads_match && outstanding_room && !mismatch_q && !comp_untrust;
 
   assign m_req     = forward;
   assign m_addr    = x_dout.common.addr;

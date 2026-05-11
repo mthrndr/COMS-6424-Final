@@ -34,13 +34,13 @@ test-s:
 		VERI_COMPILE_FLAGS="-Wno-BLKANDNBLK -Wno-COMBDLY +define+COREV_ASSERT_OFF" \
 		veri-test
 
-test-reset:
-	$(MAKE) -C sim/ \
+test-ip-functional:
+	$(MAKE) -C sim/functional/ \
 	CV32E40X_HOME=$(CORE_X_PATH) \
 	CV32E40S_HOME=$(CORE_S_PATH)
 
-clean-reset-test:
-	$(MAKE) -C sim/ clean
+clean-functional-test:
+	$(MAKE) -C sim/functional/ clean
 
 # Maybe not needed anymore?? It seems the new x I pulled has the diffs I
 # need...
