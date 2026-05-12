@@ -83,6 +83,9 @@ module reset_buffer #(
 						saved_pc_x <= debug_pc_o_x;
 						saved_pc_s <= debug_pc_o_s;
 
+						boot_addr_i_x <= debug_pc_o_x;
+						boot_addr_i_s <= debug_pc_o_s;
+
 						instr_gnt_i_x <= 0;
 						instr_gnt_i_s <= 0;
 

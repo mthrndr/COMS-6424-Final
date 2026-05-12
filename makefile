@@ -42,6 +42,14 @@ test-ip-functional:
 clean-functional-test:
 	$(MAKE) -C sim/functional/ clean
 
+test-ip-security:
+	$(MAKE) -C sim/security/ \
+	CV32E40X_HOME=$(CORE_X_PATH) \
+	CV32E40S_HOME=$(CORE_S_PATH)
+
+clean-security-test:
+	$(MAKE) -C sim/security/ clean
+
 # Maybe not needed anymore?? It seems the new x I pulled has the diffs I
 # need...
 apply-patches:

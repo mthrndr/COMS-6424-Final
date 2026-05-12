@@ -17,6 +17,7 @@ module fifo #(
 
     reg [$clog2(DEPTH)-1:0] w_ptr, r_ptr;
     reg [WIDTH-1:0]         fifo[DEPTH];
+    logic [WIDTH-1:0] count;
 
     logic   valid_w, valid_r;
     assign  valid_w = w_en & !full;
@@ -26,13 +27,14 @@ module fifo #(
 
     // assign full = ((w_ptr+1'b1) == r_ptr);
     // assign empty = (w_ptr == r_ptr);
+    assign full  = (count == DEPTH);
+    assign empty = (count == 0);
 
     always@(posedge clk) begin
         if (!rst_n) begin
             w_ptr   <= 0;
             r_ptr   <= 0;
-            empty   <= 1;
-            full    <= 0;
+	    count   <= 0;
         end else begin
             // Write logic
            
@@ -43,19 +45,16 @@ module fifo #(
 	    if (flush) begin
 		w_ptr	    <= 0;
 		r_ptr	    <= 0;
-		full	    <= 0;
-		empty	    <= 1;
+		count 	    <= 0;
 	    end else if (valid_w && valid_r) begin
                 w_ptr       <= w_ptr + 1;
                 r_ptr       <= r_ptr + 1;
             end else if (valid_w) begin
                 w_ptr       <= w_ptr + 1;
-                empty       <= 0;
-                full        <= ((w_ptr + 1'b1) == r_ptr);
+		count	    <= count + 1;
             end else if (valid_r) begin
                 r_ptr       <= r_ptr + 1;
-                empty       <= (w_ptr == (r_ptr + 1'b1));
-                full        <= 0;
+		count	    <= count - 1;
 	    end
         end
     end
