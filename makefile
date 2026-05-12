@@ -46,9 +46,10 @@ clean-functional-test:
 # need...
 apply-patches:
 	# cd tmp_cores/cv32e40x && git apply ../../patches/cv32e40x_core.patch
-	cd core-v-verif && git am ../patches/core-v-verif.patch
+	cd core-v-verif && git am ../patches/core-v-verif_new.patch
 
 remove-patches:
+	git checkout -- core-v-verif
 	cd tmp_cores/cv32e40x && git checkout -- rtl/cv32e40x_core.sv
 
 change-core-ver:
