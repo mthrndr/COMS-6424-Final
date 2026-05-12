@@ -9,4 +9,6 @@ docker compose run --rm hdl-shell yosys -p "plugin -i slang; help read_slang" > 
 
 make apply-patches
 
+make change-core-ver
+
 echo "docker setup, run: ./run.sh"
