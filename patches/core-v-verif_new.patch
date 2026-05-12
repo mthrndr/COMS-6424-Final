@@ -1,7 +1,7 @@
 From ee01045048ea8638c629fdc8d8a5c811a9adb1c9 Mon Sep 17 00:00:00 2001
 From: Jayden <jayleesin@gmail.com>
 Date: Tue, 5 May 2026 22:11:08 -0400
-Subject: [PATCH 1/3] x core tb pin renaming
+Subject: [PATCH 1/4] x core tb pin renaming
 
 ---
  cv32e40x/tb/core/cv32e40x_tb_wrapper.sv | 1 -
@@ -26,7 +26,7 @@ index c73af30a..43ece4ec 100644
 From a0f679899f0248a0cb454aacd3164745cd162bcd Mon Sep 17 00:00:00 2001
 From: Jayden <jayleesin@gmail.com>
 Date: Tue, 5 May 2026 23:04:02 -0400
-Subject: [PATCH 2/3] Unsuccessful hello-world for s core. Compiles fine but
+Subject: [PATCH 2/4] Unsuccessful hello-world for s core. Compiles fine but
  hangs due to security feature creating a trap
 
 ---
@@ -234,7 +234,7 @@ index d2457d47..75a442c6 100644
 From 644fb0b09c6040223324ee30f418140124a8f354 Mon Sep 17 00:00:00 2001
 From: mthrndr <kristian.d.nikolov@gmail.com>
 Date: Tue, 12 May 2026 00:55:01 -0400
-Subject: [PATCH 3/3] Fixed s sim
+Subject: [PATCH 3/4] Fixed s sim
 
 ---
  cv32e40s/sim/core/Makefile              |   4 +-
@@ -504,6 +504,31 @@ index 43ece4ec..f214f98f 100644
      // this handles read to RAM and memory mapped pseudo peripherals
      mm_ram
          #(.RAM_ADDR_WIDTH (RAM_ADDR_WIDTH),
+-- 
+2.54.0
+
+
+From d8f0a8f6f54e98eba00b17a12e7609010b52c5c3 Mon Sep 17 00:00:00 2001
+From: mthrndr <kristian.d.nikolov@gmail.com>
+Date: Tue, 12 May 2026 01:15:31 -0400
+Subject: [PATCH 4/4] Updated s core tb wrapper to work with 0.9 v of core
+
+---
+ cv32e40s/tb/core/cv32e40s_tb_wrapper.sv | 1 -
+ 1 file changed, 1 deletion(-)
+
+diff --git a/cv32e40s/tb/core/cv32e40s_tb_wrapper.sv b/cv32e40s/tb/core/cv32e40s_tb_wrapper.sv
+index f4b3fcbe..e6ab5fcf 100644
+--- a/cv32e40s/tb/core/cv32e40s_tb_wrapper.sv
++++ b/cv32e40s/tb/core/cv32e40s_tb_wrapper.sv
+@@ -119,7 +119,6 @@ module cv32e40s_tb_wrapper
+ 
+     // Instantiate the core
+     cv32e40s_core #(
+-        .SMCLIC		(0),
+ 	    .PMA_NUM_REGIONS	(1),
+         .PMA_CFG            (TB_PMA_CFG),
+ 	    .PMP_NUM_REGIONS	(1),
 -- 
 2.54.0
 
