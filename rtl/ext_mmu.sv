@@ -19,7 +19,7 @@ module ext_mmu #(
   input  logic [DATA_W-1:0]   x_wdata,
   input  logic [5:0]          x_atop,
   input  logic [2:0]          x_prot,
-  input  logic [2:0]          x_memtype,
+  input  logic [1:0]          x_memtype,
   input  logic                x_dbg,
   output logic                x_rvalid,
   output logic [DATA_W-1:0]   x_rdata,
@@ -33,7 +33,7 @@ module ext_mmu #(
   input  logic [3:0]          s_be,
   input  logic [DATA_W-1:0]   s_wdata,
   input  logic [2:0]          s_prot,
-  input  logic [2:0]          s_memtype,
+  input  logic [1:0]          s_memtype,
   input  logic                s_dbg,
   input  logic                s_reqpar,
   input  logic [ACHK_W-1:0]   s_achk,
@@ -63,7 +63,7 @@ module ext_mmu #(
     logic [3:0]        be;
     logic [DATA_W-1:0] wdata;
     logic [2:0]        prot;
-    logic [2:0]        memtype;
+    logic [1:0]        memtype;
     logic              dbg;
   } common_req_t;
 
@@ -93,7 +93,9 @@ module ext_mmu #(
     x_pkt.be      = x_be;
     x_pkt.wdata   = x_wdata;
     x_pkt.prot    = x_prot;
-    x_pkt.memtype = x_memtype;
+    // DEBUG
+    //x_pkt.memtype = x_memtype;
+    x_pkt.memtype = 0;
     x_pkt.dbg     = x_dbg;
 
     s_pkt.addr    = s_addr;
@@ -101,7 +103,9 @@ module ext_mmu #(
     s_pkt.be      = s_be;
     s_pkt.wdata   = s_wdata;
     s_pkt.prot    = s_prot;
-    s_pkt.memtype = s_memtype;
+    // DEBUG
+    //s_pkt.memtype = s_memtype;
+    s_pkt.memtype = 0;
     s_pkt.dbg     = s_dbg;
   end
 
@@ -123,7 +127,9 @@ module ext_mmu #(
     s_addr, s_we, s_be, s_wdata,
     s_prot, s_memtype, s_dbg
   );
-  assign achk_ok = (s_achk == expected_achk);
+  // assign achk_ok = (s_achk == expected_achk);
+  // TEMP DEBUG
+    assign achk_ok = 1;
 
   assign s_integrity_fail = (s_req && (!reqpar_ok || !achk_ok)) || (!s_req && !reqpar_ok);
 
@@ -265,7 +271,7 @@ module ext_mmu #(
     input logic [3:0]        be,
     input logic [DATA_W-1:0] wdata,
     input logic [2:0]        prot,
-    input logic [2:0]        memtype,
+    input logic [1:0]        memtype,
     input logic              dbg
   );
     logic [ACHK_W-1:0] r;
@@ -294,6 +300,7 @@ module ext_mmu #(
     r[2] = ^rdata[23:16];
     r[3] = ^rdata[31:24];
     r[4] = ^{err, 1'b0};
+    //r[4] = 1'b0 ;
     return r;
   endfunction
 

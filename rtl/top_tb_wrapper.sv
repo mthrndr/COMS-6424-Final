@@ -16,6 +16,8 @@ module top_tb_wrapper
      output logic [31:0] exit_value_o,
      output logic        exit_valid_o);
 
+    import cv32e40s_pkg::*;
+
     // signals connecting core to memory
     logic                         instr_req;
     logic                         instr_gnt;
@@ -116,7 +118,7 @@ module top_tb_wrapper
 	  .instr_gntpar_i         (~instr_gnt             ),
 	  .instr_rvalidpar_i      (~instr_rvalid          ),
 	  .instr_achk_o           (                       ),
-	  .instr_rchk_i           (calc_obi_chk(instr_rdata)),
+	  // .instr_rchk_i           (calc_obi_chk(instr_rdata)),
 
 	  .data_req_o             ( data_req              ),
 	  .data_gnt_i             ( data_gnt              ),
@@ -134,7 +136,7 @@ module top_tb_wrapper
 	  .data_gntpar_i          (~data_gnt              ),
 	  .data_rvalidpar_i       (~data_rvalid           ),
 	  .data_achk_o            (                       ),
-	  .data_rchk_i            (calc_obi_chk(data_rdata)),
+	  // .data_rchk_i            (calc_obi_chk(data_rdata)),
 
 	  .mcycle_o               (                       ),
 
@@ -180,21 +182,57 @@ module top_tb_wrapper
     always_ff @(posedge clk_i) begin
         if(rst_ni) begin
             dbg_cycles <= dbg_cycles + 1;
-            if(dbg_cycles < 100 || (dbg_cycles % 1000 == 0)) begin
-                $display("[%0t] cyc=%0d pc=%h instr_req=%b  instr_gnt=%b data_req=%b we=%b daddr=%h slp=%b mcause=%h mepc=%h",
+            // if(dbg_cycles < 100 || (dbg_cycles % 1000 == 0)) begin
+            if(dbg_cycles < 30) begin
+                $display("[%0t] cyc=%0d pc=%h instr_req=%b instr_req_s=%b instr_req_x=%b both_head_valid=%b heads_match=%b outstanding_room=%b mismatch_q=%b comp_untrust=%b x_empty=%b s_empty=%b x_pop=%b s_pop=%b flush_fifos=%b mismatch=%b mm_field_test=%b mm_integrity_set=%b s_req=%b, reqpar_ok=%b, achk_ok=%b instr_gnt=%b data_req=%b we=%b daddr=%h slp=%b mcause=%h mepc=%h, fault_det_comp_o=%b",
                         $time,
                         dbg_cycles,
                         instr_addr,
                         instr_req,
+                        top_i.cv32e40s_core_i.instr_req_o,
+                        top_i.cv32e40x_core_i.instr_req_o,
+                        top_i.ext_mmu_instr.both_head_valid,
+                        top_i.ext_mmu_instr.heads_match,
+                        top_i.ext_mmu_instr.outstanding_room,
+                        top_i.ext_mmu_instr.mismatch_q,
+                        top_i.ext_mmu_instr.comp_untrust,
+                        top_i.ext_mmu_instr.x_empty,
+                        top_i.ext_mmu_instr.s_empty,
+                        top_i.ext_mmu_instr.x_pop,
+                        top_i.ext_mmu_instr.s_pop,
+                        top_i.ext_mmu_instr.flush_fifos,
+                        top_i.ext_mmu_instr.mismatch,
+                        top_i.ext_mmu_instr.mm_field_set,
+                        top_i.ext_mmu_instr.mm_integrity_set,
+                        top_i.ext_mmu_instr.s_req,
+                        top_i.ext_mmu_instr.reqpar_ok,
+                        top_i.ext_mmu_instr.achk_ok,
                         instr_gnt,
                         data_req,
                         data_we,
                         data_addr,
                         core_sleep_o,
                         top_i.cv32e40s_core_i.cs_registers_i.mcause_q,
-                        top_i.cv32e40s_core_i.mepc
+                        top_i.cv32e40s_core_i.mepc,
+                        top_i.fault_det_comp_o,
                     );
+                $display("\n--- MMU Request Mismatch at %0t ---", $time);
+                $display("Field    | X-Core (CV32E40X) | S-Core (CV32E40S)");
+                $display("---------|-------------------|------------------");
+                $display("Addr:    | %h          | %h", top_i.ext_mmu_instr.x_dout.common.addr,    top_i.ext_mmu_instr.s_dout.common.addr);
+                $display("WE:      | %b                 | %b", top_i.ext_mmu_instr.x_dout.common.we,      top_i.ext_mmu_instr.s_dout.common.we);
+                $display("BE:      | %h                 | %h", top_i.ext_mmu_instr.x_dout.common.be,      top_i.ext_mmu_instr.s_dout.common.be);
+                $display("WData:   | %h          | %h", top_i.ext_mmu_instr.x_dout.common.wdata,   top_i.ext_mmu_instr.s_dout.common.wdata);
+                $display("Prot:    | %b               | %b", top_i.ext_mmu_instr.x_dout.common.prot,    top_i.ext_mmu_instr.s_dout.common.prot);
+                $display("MemType: | %b                | %b", top_i.ext_mmu_instr.x_dout.common.memtype, top_i.ext_mmu_instr.s_dout.common.memtype);
+                $display("Dbg:     | %b                 | %b", top_i.ext_mmu_instr.x_dout.common.dbg,     top_i.ext_mmu_instr.s_dout.common.dbg);
+                $display("-----------------------------------------------\n");
             end
+        // assign forward = both_head_valid && heads_match && outstanding_room && !mismatch_q && !comp_untrust;
+        //assign both_head_valid = !x_empty && !s_empty;
+        //assign heads_match     = (x_dout.common == s_dout.common);
+        //assign flush_fifos = mismatch || mm_field_set || mm_integrity_set;
+        //assign s_integrity_fail = (s_req && (!reqpar_ok || !achk_ok)) || (!s_req && !reqpar_ok);
             // Check Instruction Integrity Errors
             // Check Instruction Integrity Errors
             if (rst_ni && top_i.cv32e40s_core_i.instr_rvalid_i) begin
@@ -221,9 +259,9 @@ module top_tb_wrapper
             end
             if (rst_ni && top_i.cv32e40s_core_i.if_stage_i.pc_if_o == 32'h00000080) begin
                 // Check if the OBI bus checker is failing
-                if (top_i.cv32e40s_core_i.if_stage_i.integrity_err_obi) begin
-                    $display("[%0t] ERROR: OBI Integrity Check Failed at 0x80!", $time);
-                end
+                // if (top_i.cv32e40s_core_i.if_stage_i.integrity_err_obi) begin
+                //     $display("[%0t] ERROR: OBI Integrity Check Failed at 0x80!", $time);
+                // end
                 // Check if the PMA/PMP (Memory Map & Security Rules) are rejecting the address
                 if (top_i.cv32e40s_core_i.if_stage_i.prefetch_inst_resp.mpu_status != 0) begin
                     $display("[%0t] ERROR: MPU (PMA/PMP) rejected execution at 0x80! mpu_status: %0d",

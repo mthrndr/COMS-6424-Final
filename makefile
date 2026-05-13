@@ -7,8 +7,9 @@ CORE_X_PATH := $(shell pwd)/cores/cv32e40x
 CORE_S_PATH := $(shell pwd)/cores/cv32e40s
 VERIF_X_DIR := core-v-verif/cv32e40x/sim/core
 VERIF_S_DIR := core-v-verif/cv32e40s/sim/core
+VERIF_DUAL_DIR := sim
 
-.PHONY: test-x test-s test-reset clean-reset-test
+.PHONY: test-x test-s test-reset clean-reset-test test-dual
 
 test-x:
 	rm -rf core-v-verif/core-v-cores/cv32e40x
@@ -32,6 +33,19 @@ test-s:
 		DESIGN_RTL_DIR=$(CORE_S_PATH)/rtl \
 		CV_SW_MARCH=$(CV_SW_MARCH) \
 		VERI_COMPILE_FLAGS="-Wno-BLKANDNBLK -Wno-COMBDLY +define+COREV_ASSERT_OFF" \
+		veri-test
+
+test-dual:
+	rm -rf core-v-verif/core-v-cores/cv32e40s
+	$(MAKE) -C ${VERIF_DUAL_DIR} \
+		SIMULATOR=verilator \
+		TEST=$(TEST) \
+		CV_CORE=cv32e40s \
+		CV_CORE_PATH=$(CORE_S_PATH) \
+		DESIGN_RTL_DIR=$(CORE_S_PATH)/rtl \
+		CV_SW_MARCH=$(CV_SW_MARCH) \
+		CORE_V_VERIF=$(shell pwd)/core-v-verif \
+		VERI_COMPILE_FLAGS="-Wno-BLKANDNBLK -Wno-COMBDLY -Wno-DECLFILENAME -Wno-SYNCASYNCNET -Wno-UNOPTFLAT +define+COREV_ASSERT_OFF -I../cores/cv32e40x/rtl/include -y ../cores/cv32e40x/rtl -y ../cores/cv32e40x/bhv -y ../rtl" \
 		veri-test
 
 test-ip-functional:

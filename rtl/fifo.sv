@@ -34,7 +34,7 @@ module fifo #(
         if (!rst_n) begin
             w_ptr   <= 0;
             r_ptr   <= 0;
-	    count   <= 0;
+	        count   <= 0;
         end else begin
             // Write logic
            
@@ -43,18 +43,18 @@ module fifo #(
                 fifo[w_ptr] <= d_in;
             end
 	    if (flush) begin
-		w_ptr	    <= 0;
-		r_ptr	    <= 0;
-		count 	    <= 0;
+		    w_ptr	    <= 0;
+		    r_ptr	    <= 0;
+		    count 	    <= 0;
 	    end else if (valid_w && valid_r) begin
                 w_ptr       <= w_ptr + 1;
                 r_ptr       <= r_ptr + 1;
             end else if (valid_w) begin
                 w_ptr       <= w_ptr + 1;
-		count	    <= count + 1;
+		        count	    <= count + 1;
             end else if (valid_r) begin
                 r_ptr       <= r_ptr + 1;
-		count	    <= count - 1;
+		        count	    <= count - 1;
 	    end
         end
     end
